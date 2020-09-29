@@ -35,7 +35,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            this.redraw();
+           // this.redraw();
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
