@@ -11,15 +11,15 @@
 	"webcomponents": [
         {
 			"kind": "main",
-			"tag": "com-sap-sample-helloworld3",
-            "url": "https://markleve.github.io/SAC/test_halloWorld3/webcomponent.js",
+			"tag": "com-sap-sample-helloworld1",
+            "url": "https://markleve.github.io/SAC/test_helloWorld3/webcomponent.js",
             "integrity": "",
             "ignoreIntegrity" : true
         },
 		{
 			"kind": "styling",
-			"tag": "com-sap-sample-helloworld3-aps",
-            "url": "https://markleve.github.io/SAC/test_halloWorld3/aps_webcomponent.js",
+			"tag": "com-sap-sample-helloworld1-style",
+            "url": "https://markleve.github.io/SAC/test_helloWorld3/aps_webcomponent.js",
 			"integrity": "",
             "ignoreIntegrity" : true
 		}
