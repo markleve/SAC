@@ -1,0 +1,37 @@
+{
+	"name": "Hello World",
+	"description": "Custom Widget Template",
+	"eula": "",
+	"vendor": "TEST_MARIE",
+	"license": "",
+	"id": "com.sap.sample.helloworld1",
+	"newInstancePrefix": "HelloWorld1",
+	"version": "0.0.1",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-helloworld1",
+            "url": "https://markleve.github.io/SAC/helloWorld/webcomponent.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+		},
+		{
+			"kind": "styling",
+			"tag": "com-sap-sample-helloworld1-style",
+            "url": "https://markleve.github.io/SAC/helloWorld/webcomponent_style.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+        }
+    ],
+	"properties": {
+		"widgetText": {
+			"type": "string",
+			"description": "The text to be displayed in the widget",
+			"default" : "Default text to be displayed!!"
+		}
+	},
+	"methods": {
+	},
+	"events": {
+	}
+}
