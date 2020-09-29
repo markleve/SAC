@@ -1,0 +1,25 @@
+{
+	"name": "Hello World",
+	"description": "Custom Widget Template",
+	"eula": "",
+	"vendor": "TEST_MARIE",
+	"license": "",
+	"id": "com.sap.sample.helloworld1",
+	"newInstancePrefix": "HelloWorld1",
+	"version": "0.0.1",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-helloworld1",
+            "url": "https://localhost:8000/helloWorld/webcomponent.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+        }
+    ],
+	"properties": {
+	},
+	"methods": {
+	},
+	"events": {
+	}
+}
