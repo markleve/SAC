@@ -1,0 +1,70 @@
+{
+	"name": "Hello World Step 3",
+	"description": "The first step in creating a minamilistic KPI tile.  Now with properties",
+	"eula": "",
+	"vendor": "TEST_MARIE",
+	"license": "",
+	"id": "com.sap.sample.helloworld1",
+	"newInstancePrefix": "HelloWorld3",
+	"version": "0.0.1",
+	"webcomponents": [
+        {
+			"kind": "main",
+			"tag": "com-sap-sample-helloworld1",
+            "url": "https://markleve.github.io/SAC/helloWorld4/webcomponent.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+        },
+		{
+			"kind": "styling",
+			"tag": "com-sap-sample-helloworld1-style",
+            "url": "https://markleve.github.io/SAC/helloWorld4/aps_webcomponent.js",
+			"integrity": "",
+            "ignoreIntegrity" : true
+		}
+    ],
+	"properties": {
+		"widgetText": {
+			"type": "string",
+			"description": "The text to be displayed in the widget",
+			"default" : "Text to be displayed!"
+		},
+		"headingType": {
+			"type": "string",
+			"description": "The heading level of the widget; h1-h3. Default is h1.",
+			"default" : "h1"
+		}
+	},
+	"methods": {
+		"setText": {
+			"description": "Set the text value of the widget",
+			"parameters": [
+				{
+					"name": "newTextValue",
+					"type": "string",
+					"description": "The displayed angle of the gauge"
+				}
+			],
+			"body": "this.widgetText = newTextValue;"
+		},
+		"setH1": {
+			"description": "Update the hX tag of the KPI field to h1",
+			"body": "this.headingType = 'h1';"
+		},
+		"setH2": {
+			"description": "Update the hX tag of the KPI field to h2",
+			"body": "this.headingType = 'h2';"
+		},
+		"setH3": {
+			"description": "Update the hX tag of the KPI field to h3",
+			"body": "this.headingType = 'h3';"
+		},
+		"getH": {
+			"description": "Get the hX tag of the KPI field",
+			"body": "return this.headingType;",
+			"returnType": "string"
+		}
+	},
+	"events": {
+	}
+}
