@@ -11,7 +11,7 @@
 		{
 			"kind": "main",
 			"tag": "com-sap-sample-helloworld1",
-            "url": "https://localhost:8000/helloWorld/webcomponent.js",
+            "url": "https://markleve.github.io/SAC/helloWorld/webcomponent.js",
             "integrity": "",
             "ignoreIntegrity" : true
         }
