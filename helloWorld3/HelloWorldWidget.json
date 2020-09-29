@@ -12,14 +12,14 @@
         {
 			"kind": "main",
 			"tag": "com-sap-sample-helloworld1",
-            "url": "https://markleve.github.io/SAC/test_helloWorld3/webcomponent.js",
+            "url": "https://markleve.github.io/SAC/helloWorld3/webcomponent.js",
             "integrity": "",
             "ignoreIntegrity" : true
         },
 		{
 			"kind": "styling",
 			"tag": "com-sap-sample-helloworld1-style",
-            "url": "https://markleve.github.io/SAC/test_helloWorld3/aps_webcomponent.js",
+            "url": "https://markleve.github.io/SAC/helloWorld3/aps_webcomponent.js",
 			"integrity": "",
             "ignoreIntegrity" : true
 		}
