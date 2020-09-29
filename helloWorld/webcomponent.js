@@ -10,6 +10,7 @@
 			super(); 
 			let shadowRoot = this.attachShadow({mode: "open"});
             shadowRoot.appendChild(tmpl.content.cloneNode(true));
+            this._firstConnection = false;
             this._tagContainer;
             this._tagType = "h1";
             this._tagText = "Hello World";
@@ -64,6 +65,14 @@
                 this._tagContainer.appendChild(theText);
                 this._shadowRoot.appendChild(this._tagContainer);
             }
+        }
+
+        get widgetText() {
+            return this._tagText;
+        }
+
+        set widgetText(newText) {
+            this._tagText = newText;
         }
     
     
