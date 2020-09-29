@@ -1,0 +1,29 @@
+{
+    "id": "com.sap.sample.mk.multicombobox",
+    "version": "1.0.0",
+    "name": "multicombobox",
+    "description": "Multicombobox",
+    "newInstancePrefix": "multicombobox",
+    "vendor": "TEST_MARIE",
+    "eula": "",
+    "license": "",
+    "webcomponents": [
+      {
+        "kind": "main",
+        "tag": "com-sap-sample-mk-multicombobox",
+        "url": "http://localhost:8000/mk_multicombobox/multicombobox.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+      },
+      {
+        "kind": "builder",
+        "tag": "com-sap-sample-mk-multicombobox-builder",
+        "url": "http://localhost:8000/mk_multicombobox/multicombobox_builder.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+    }
+    ],
+    "properties": {},
+    "methods": {},
+    "events": {}
+  }
