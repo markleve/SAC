@@ -71,8 +71,8 @@
             return this._tagText;
         }
 
-        set widgetText(newText) {
-            this._tagText = newText;
+        set widgetText(value) {
+            this._tagText = value;
         }
     
     
