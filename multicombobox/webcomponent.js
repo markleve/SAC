@@ -136,12 +136,25 @@
                         //oModel.setData(mockData);
                         //this.getView().setModel(oModel)
 
-                        var oModel = new sap.ui.model.json.JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
+                        let mockData = {
+                            ProductCollection : [
+                                {
+                                    "ProductId": "HT-1000",
+                                    "Category": "Laptops",
+                                    "MainCategory": "Computer Systems",
+                                    "TaxTarifCode": "1",
+                                    "SupplierName": "Very Best Screens",
+                                },
+                                {
+                                    "ProductId": "HT-1001",
+                                    "Category": "Laptops",
+                                    "MainCategory": "Computer Systems",
+                                    "TaxTarifCode": "1",
+                                    "SupplierName": "Very Best Screens",
+                                }]};
 
-                        oModel.attachRequestCompleted(function(data) {
-                            console.log(data);
-                        });
-
+                        var oModel = new JSONModel();
+                        oModel.setData(mockData);
                         this.getView().setModel(oModel);
                     },
         
