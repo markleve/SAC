@@ -117,7 +117,7 @@
         
                     onInit: function () {
                         // set explored app's demo model on this sample
-                        var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
+                        var oModel = new JSONModel(sap.ui.require.toUrl("https://markleve.github.io/SAC/multicombobox/products.json"));
                         this.getView().setModel(oModel);
                     },
         
