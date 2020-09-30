@@ -26,10 +26,7 @@
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
 			            width="350px"
-			            items="{
-				            path: '/ProductCollection',
-				            sorter: { path: 'Name' }
-			            }">
+			            items="{/ProductCollection}">
 			            <core:Item key="{ProductId}" text="{Name}"/>
 		            </MultiComboBox>
 	            </l:VerticalLayout>
@@ -137,7 +134,7 @@
                         //this.getView().setModel(oModel)
 
                         let mockData = {
-                            ProductCollection : [
+                            "ProductCollection" : [
                                 {
                                     "ProductId": "HT-1000",
                                     "Category": "Laptops",
@@ -153,8 +150,8 @@
                                     "SupplierName": "Very Best Screens",
                                 }]};
 
-                        var oModel = new JSONModel();
-                        oModel.setData(mockData);
+                        var oModel = new JSONModel(mockData);
+                        //oModel.setData(mockData);
                         this.getView().setModel(oModel);
                     },
         
