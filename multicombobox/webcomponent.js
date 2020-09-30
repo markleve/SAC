@@ -23,7 +23,7 @@
 		            class="sapUiContentPadding"
 		            width="100%">
 		            <MultiComboBox
-			            selectionChange="handleSelectionChange"
+			            selectionChange=""
 			            selectionFinish="handleSelectionFinish"
 			            width="350px"
 			            items="{/ProductCollection}">
