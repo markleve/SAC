@@ -141,7 +141,7 @@
                                     "MainCategory": "Computer Systems",
                                     "TaxTarifCode": "1",
                                     "SupplierName": "Very Best Screens",
-                                    "name": "Computer 1"
+                                    "Name": "Computer 1"
                                 },
                                 {
                                     "ProductId": "HT-1001",
@@ -149,7 +149,7 @@
                                     "MainCategory": "Computer Systems",
                                     "TaxTarifCode": "1",
                                     "SupplierName": "Very Best Screens",
-                                    "name": "Computer 2"
+                                    "Name": "Computer 2"
                                 }]};
 
                         var oModel = new JSONModel(mockData);
