@@ -25,6 +25,11 @@
 		}
     ],
 	"properties": {
+		"metadata": {
+			"type": "string",
+			"description": "For internal use",
+			"default": ""
+		  }
 	},
 	"methods": {
 	},
