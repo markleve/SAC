@@ -156,37 +156,22 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-/*                         var changedItem = oEvent.getParameter("changedItem");
-                        var isSelected = oEvent.getParameter("selected");
-        
-                        var state = "Selected";
-                        if (!isSelected) {
-                            state = "Deselected";
-                        }
-        
-                        MessageToast.show("Event 'selectionChange': " + state + " '" + changedItem.getText() + "'", {
-                            width: "auto"
-                        }); */
+                        var selectedItems = oEvent.getParameter("selectedItems");
 
-                        that.dispatchEvent(new CustomEvent("onSelectionChange", {}));
+                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
+                            detail: {
+                                selectedItems: selectedItems
+                            }
+
+                        }));
                     },
         
                     handleSelectionFinish: function(oEvent) {
                         var selectedItems = oEvent.getParameter("selectedItems");
-                        var messageText = "Event 'selectionFinished': [";
-        
-                        for (var i = 0; i < selectedItems.length; i++) {
-                            essageText += "'" + selectedItems[i].getText() + "'";
-                            if (i != selectedItems.length - 1) {
-                                messageText += ",";
-                            }
-                        }
-        
-                        messageText += "]";
-        
-                        MessageToast.show(messageText, {
-                            width: "auto"
-                        });
+                        
+                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
+                            
+                        }));
                     }
                 });
             });
