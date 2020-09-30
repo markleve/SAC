@@ -23,7 +23,7 @@
 		            class="sapUiContentPadding"
 		            width="100%">
 		            <MultiComboBox
-			            selectionChange=""
+			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
 			            width="350px"
 			            items="{/ProductCollection}">
@@ -51,15 +51,12 @@
             _shadowRoot = this._shadowRoot;
 
             //Adding event handler for selection change
-			this.addEventListener("selectionChange", event => {
+/* 			this.addEventListener("selectionChange", event => {
 				var event = new Event("onSelectionChange");
 				this.dispatchEvent(event);
             });
+ */
 
-            this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-            });
 
 		}
 
@@ -170,6 +167,8 @@
                         MessageToast.show("Event 'selectionChange': " + state + " '" + changedItem.getText() + "'", {
                             width: "auto"
                         }); */
+
+                        that.dispatchEvent(new CustomEvent("onSelectionChange", {}));
                     },
         
                     handleSelectionFinish: function(oEvent) {
