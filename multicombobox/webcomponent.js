@@ -1,4 +1,7 @@
 (function()  {
+    let _shadowRoot;
+    let _id;
+
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
@@ -46,6 +49,9 @@
             this._id = createGuid();
 
             this._shadowRoot.querySelector("#oView").id = this._id + "_oView";
+
+            _id = this._id;
+            _shadowRoot = this._shadowRoot;
 
 		}
 
@@ -156,15 +162,15 @@
             });
 
             //### THE APP: place the XMLView somewhere into DOM ###
+
+            //var oView = sap.ui.jsview("myView.Template", {
+            //    viewContent
+            //});
             var oView  = sap.ui.xmlview({
-                viewContent: jQuery(this._shadowRoot.getElementById(this._id + "_oView")).html(),
+                viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
             });
+
             oView.placeAt(content);
-
-
-            if (that_._designMode) {
-                oView.byId("passwordInput").setEnabled(false);
-            }
         });
     }
 
