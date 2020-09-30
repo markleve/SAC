@@ -72,7 +72,7 @@
                 this.redraw();
             }
 
-            createUI5();
+            createUI5(this);
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -94,7 +94,7 @@
     
     });
 
-    function createUI5() {
+    function createUI5(that) {
 
         var that_ = that;
       
@@ -117,7 +117,7 @@
         
                     onInit: function () {
                         // set explored app's demo model on this sample
-                        var oModel = new JSONModel(sap.ui.require.toUrl("https://raw.githubusercontent.com/markleve/SAC/master/multicombobox/products.json"));
+                        var oModel = new JSONModel(sap.ui.require.toUrl("https://markleve.github.io/SAC/multicombobox/products.json"));
                         this.getView().setModel(oModel);
                     },
         
