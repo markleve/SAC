@@ -50,6 +50,12 @@
             _id = this._id;
             _shadowRoot = this._shadowRoot;
 
+            //Adding event handler for selection change
+			this.addEventListener("selectionChange", event => {
+				var event = new Event("onSelectionChange");
+				this.dispatchEvent(event);
+            });
+
 		}
 
 
@@ -120,7 +126,7 @@
         
                     onInit: function () {
                         // set explored app's demo model on this sample
-                        var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");//sap.ui.require.toUrl("https://markleve.github.io/SAC/multicombobox/products.json"));
+                        var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
                         this.getView().setModel(oModel);
 
 /*                         let mockData = {
@@ -148,7 +154,7 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        var changedItem = oEvent.getParameter("changedItem");
+/*                         var changedItem = oEvent.getParameter("changedItem");
                         var isSelected = oEvent.getParameter("selected");
         
                         var state = "Selected";
@@ -158,7 +164,7 @@
         
                         MessageToast.show("Event 'selectionChange': " + state + " '" + changedItem.getText() + "'", {
                             width: "auto"
-                        });
+                        }); */
                     },
         
                     handleSelectionFinish: function(oEvent) {

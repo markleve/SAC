@@ -34,5 +34,8 @@
 	"methods": {
 	},
 	"events": {
+		"onSelectionChange": {
+			"description": "Called when the user changes the selection"
+		}
 	}
 }
