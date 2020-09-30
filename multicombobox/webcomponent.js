@@ -1,6 +1,7 @@
 (function()  {
     let _shadowRoot;
     let _id;
+    let _selectedItems;
 
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
@@ -101,6 +102,12 @@
 
         redraw(){
         }
+
+        //Getters and setters
+        get getSelectedItems() {
+            return _selectedItems;
+
+        }
     
     
     });
@@ -156,12 +163,12 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        var selectedItems = oEvent.getParameter("selectedItems");
+                        _selectedItems = oEvent.getParameter("selectedItems");
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange", {
-                            detail: {
+/*                             detail: {
                                 selectedItems: selectedItems
-                            }
+                            } */
 
                         }));
                     },

@@ -32,6 +32,12 @@
 		  }
 	},
 	"methods": {
+		"getSelectedItems": {
+			"returnType": "string",
+			"description": "Get selected items",
+			"parameters": [],
+			"body": "return _selectedItems;"
+		  }
 	},
 	"events": {
 		"onSelectionChange": {
