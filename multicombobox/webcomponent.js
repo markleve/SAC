@@ -123,8 +123,18 @@
         
                     onInit: function () {
                         // set explored app's demo model on this sample
-                        var oModel = new JSONModel(sap.ui.require.toUrl("https://markleve.github.io/SAC/multicombobox/products.json"));
-                        this.getView().setModel(oModel);
+                        //var oModel = new JSONModel(sap.ui.require.toUrl("https://markleve.github.io/SAC/multicombobox/products.json"));
+                        //this.getView().setModel(oModel);
+
+                        let mockData = [
+                            { "selectionID": 1, "selectionText": "selection 1" },
+                            { "selectionID": 2, "selectionText": "selection 2" },
+                            { "selectionID": 3, "selectionText": "selection 3" }
+                        ]
+
+                        var oModel = new JSONModel();
+                        oModel.setData(mockData);
+                        this.getView().setModel(oModel)
                     },
         
                     handleSelectionChange: function(oEvent) {
