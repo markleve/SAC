@@ -56,6 +56,11 @@
 				this.dispatchEvent(event);
             });
 
+            this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+            });
+
 		}
 
 

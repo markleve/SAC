@@ -36,6 +36,10 @@
 	"events": {
 		"onSelectionChange": {
 			"description": "Called when the user changes the selection"
+		},
+		"onClick": {
+			"description": "When clicking on box"
 		}
+
 	}
 }
