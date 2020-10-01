@@ -60,6 +60,8 @@
             this._selectedItemKey = "";
             this._selectedItemText = "";
 
+            this._new_keys = [];
+
 
 		}
 
@@ -134,8 +136,12 @@
         }
         
         setSelectedKeys(oChangedProperties) {
-            var a = "strng";
+            this._new_keys = oChangedProperties;
         }
+
+/*         getSelectedKeys() {
+
+        } */
     
     });
 
@@ -198,6 +204,10 @@
                         that._firePropertiesChanged(texts, keys);
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange"));
+
+                        if(that._new_keys != []) {
+                            selectedItems.setSelectedKeys(that._new_keys);
+                        }
                     },
         
                     handleSelectionFinish: function(oEvent) {
