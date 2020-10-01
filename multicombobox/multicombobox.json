@@ -32,6 +32,10 @@
 		"selectedItemKeys": {
 			"type": "string[]",
 			"description": "The keys of the selected items"
+		},
+		"selectItemKeys": {
+			"type": "string[]",
+			"description": "New keys to be selected"
 		}
 	},
 	"methods": {
@@ -72,8 +76,7 @@
 					"type": "string[]",
 					"description": "The new keys to be set"
 				}
-			],
-			"body": "this.selectedItemKeys = keys;"
+			]
 		  }
 	},
 	"events": {

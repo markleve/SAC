@@ -131,7 +131,11 @@
 
         set selectedItemKeys(value) {
             this._selectedItemKey = value;
-        }    
+        }
+        
+        setSelectedKeys(oChangedProperties) {
+            var a = "strng";
+        }
     
     });
 
