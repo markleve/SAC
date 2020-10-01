@@ -46,7 +46,7 @@
 			"returnType": "string",
 			"description": "Adds new item to the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItems;"
+			"body": ""
 		  },
 		  "getSelectedText": {
 			"returnType": "string",
@@ -58,19 +58,19 @@
 			"returnType": "string",
 			"description": "Removes all items from the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItems;"
+			"body": ""
 		  },
 		  "removeItem": {
 			"returnType": "string",
 			"description": "Removes an item from the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItems;"
+			"body": ""
 		  },
 		  "setSelectedKey": {
 			"returnType": "string",
 			"description": "Selects item in the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItems;"
+			"body": ""
 		  }
 	},
 	"events": {

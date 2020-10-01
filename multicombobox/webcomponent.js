@@ -56,6 +56,9 @@
 				this.dispatchEvent(event);
             });
  */
+            
+            this._selectedItemKey = "";
+            this._selectedItemText = "";
 
 
 		}
@@ -83,7 +86,7 @@
                 this.redraw();
             }
 
-            createUI5(this);
+            createUI5(this, oChangedProperties);
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -101,17 +104,38 @@
 
         redraw(){
         }
+        
+        _firePropertiesChanged(selectedItemText, selectedItemKey) {
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        selectedItemText: selectedItemText,
+                        selectedItemKey: selectedItemKey
+                    }
+                }
+            }));
+        }
 
         //Getters and setters
-/*         get getSelectedItems() {
-            return _selectedItems;
+        get selectedItemText() {
+            return this._selectedItemText;
+        }
 
-        } */
-    
+        set selectedItemText(value) {
+            this._selectedItemText = value;
+        }
+
+        get selectedItemKey() {
+            return this._selectedItemKey;
+        }
+
+        set selectedItemKey(value) {
+            this._selectedItemKey = value;
+        }    
     
     });
 
-    function createUI5(that) {
+    function createUI5(that, changedProperties) {
 
         var that_ = that;
       
@@ -164,15 +188,9 @@
                     handleSelectionChange: function(oEvent) {
                         var selectedItems = oEvent.getParameter("changedItem");
 
-                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
-                            detail: {
-                                properties: {
-                                    selectedItemText: selectedItems.getText(),
-                                    selectedItemKey: selectedItems.getKey()
-                                }
-                            }
+                        that._firePropertiesChanged(selectedItems.getText(), selectedItems.getKey());
 
-                        }));
+                        that.dispatchEvent(new CustomEvent("onSelectionChange"));
                     },
         
                     handleSelectionFinish: function(oEvent) {
