@@ -105,11 +105,11 @@
         redraw(){
         }
         
-        _firePropertiesChanged(selectedItemText, selectedItemKeys) {
+        _firePropertiesChanged(selectedItemTexts, selectedItemKeys) {
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
                 detail: {
                     properties: {
-                        selectedItemText: selectedItemText,
+                        selectedItemTexts: selectedItemTexts,
                         selectedItemKeys: selectedItemKeys
                     }
                 }
@@ -117,11 +117,11 @@
         }
 
         //Getters and setters
-        get selectedItemText() {
+        get selectedItemTexts() {
             return this._selectedItemText;
         }
 
-        set selectedItemText(value) {
+        set selectedItemTexts(value) {
             this._selectedItemText = value;
         }
 
@@ -186,13 +186,12 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        var selectedItem = oEvent.getParameter("changedItem");
+                        var selectedItems = oEvent.getSource().getSelectedItems();
 
-                        var multicombobox = oEvent.getSource();
-                        var selectedKeys = multicombobox.getSelectedKeys();
-                        var selectedItems = multicombobox.getSelectedItems();
+                        var texts = selectedItems.map(key => key.getText());
+                        var keys = selectedItems.map(key => key.getKey());
 
-                        that._firePropertiesChanged(selectedItem.getText(), selectedKeys);
+                        that._firePropertiesChanged(texts, keys);
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange"));
                     },

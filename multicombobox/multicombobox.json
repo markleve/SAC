@@ -25,9 +25,9 @@
 		}
     ],
 	"properties": {
-		"selectedItemText": {
-			"type": "string",
-			"description": "The text of the selected item"
+		"selectedItemTexts": {
+			"type": "string[]",
+			"description": "The texts of the selected items"
 		},
 		"selectedItemKeys": {
 			"type": "string[]",
@@ -46,11 +46,11 @@
 			"parameters": [],
 			"body": ""
 		  },
-		  "getSelectedText": {
-			"returnType": "string",
-			"description": "Returns the text of the selected item in the dropdown",
+		  "getSelectedTexts": {
+			"returnType": "string[]",
+			"description": "Returns the texts of the selected items in the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItemText;"
+			"body": "return this.selectedItemTexts;"
 		  },
 		  "removeAllItems": {
 			"returnType": "string",
