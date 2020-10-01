@@ -144,7 +144,7 @@
             keys.forEach(key => {
                 allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
             });
-            
+
             this._viewModel.setProperty("/ProductCollection", allItems);
         }
 
@@ -154,7 +154,7 @@
                 allItems.push({ProductId: key, Name: values[index]});
             });
             
-            this.getView().getModel().setProperty("/ProductCollection", allItems);
+            this._viewModel.setProperty("/ProductCollection", allItems);
         }
     
     });
