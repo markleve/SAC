@@ -57,10 +57,7 @@
 			"body": "return this.selectedItemTexts;"
 		  },
 		  "removeAllItems": {
-			"returnType": "string",
-			"description": "Removes all items from the dropdown",
-			"parameters": [],
-			"body": ""
+			"description": "Removes all items from the dropdown"
 		  },
 		  "removeItem": {
 			"returnType": "string",

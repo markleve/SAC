@@ -57,10 +57,11 @@
             });
  */
             
-            this._selectedItemKey = "";
-            this._selectedItemText = "";
+            this._viewModel;
 
             this._new_keys = [];
+
+            this._multicombobox;
 
 
 		}
@@ -139,6 +140,10 @@
             this._new_keys = oChangedProperties;
         }
 
+        removeAllItems() {
+            this._viewModel.setProperty("/ProductCollection", {});
+        }
+
 /*         getSelectedKeys() {
 
         } */
@@ -170,6 +175,8 @@
                         // set explored app's demo model on this sample
                         var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
                         this.getView().setModel(oModel);
+
+                        that._viewModel = this.getView().getModel();
 
 /*                         let mockData = {
                             "ProductCollection" : [
@@ -207,6 +214,20 @@
 
                         that._firePropertiesChanged(texts, keys);
 
+                        //Remove all items
+                        //this.getView().getModel().setProperty("/ProductCollection", {});
+
+                        //Remove one item
+                        //var allItems = this.getView().getModel().getProperty("/ProductCollection");
+                        // allItems.splice(allItems.findIndex(item => item.ProductId === "HT-1001"),1);
+                        //this.getView().getModel().setProperty("/ProductCollection", allItems)
+
+                        //Add one item
+                        //var allItems = this.getView().getModel().getProperty("/ProductCollection");
+                        // allItems.push({ProductId: "productId", Name: "name"});
+                        //this.getView().getModel().setProperty("/ProductCollection", allItems)
+
+
                         that.dispatchEvent(new CustomEvent("onSelectionChange"));
                     },
         
@@ -216,6 +237,10 @@
                         //that._firePropertiesChanged(selectedItem.getText(), selectedItem.getKey());
                         
                         that.dispatchEvent(new CustomEvent("onSelectionFinished"));
+                    },
+
+                    removeAllItems() {
+
                     }
                 });
             });
