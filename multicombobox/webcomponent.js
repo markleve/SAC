@@ -58,12 +58,7 @@
  */
             
             this._viewModel;
-
-            this._new_keys = [];
-
             this._multicombobox;
-
-
 		}
 
 
@@ -137,16 +132,12 @@
         }
         
         setSelectedKeys(oChangedProperties) {
-            this._new_keys = oChangedProperties;
+            this._multicombobox.setSelectedKeys(oChangedProperties);
         }
 
         removeAllItems() {
             this._viewModel.setProperty("/ProductCollection", {});
         }
-
-/*         getSelectedKeys() {
-
-        } */
     
     });
 
@@ -203,9 +194,10 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        if(that._new_keys.length > 0) {
+                        that._multicombobox = oEvent.getSource();
+/*                         if(that._new_keys.length > 0) {
                             oEvent.getSource().setSelectedKeys(that._new_keys);
-                        }
+                        } */
 
                         var selectedItems = oEvent.getSource().getSelectedItems();
 

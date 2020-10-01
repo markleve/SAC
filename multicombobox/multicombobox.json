@@ -32,17 +32,12 @@
 		"selectedItemKeys": {
 			"type": "string[]",
 			"description": "The keys of the selected items"
-		},
-		"selectItemKeys": {
-			"type": "string[]",
-			"description": "New keys to be selected"
 		}
 	},
 	"methods": {
 		"getSelectedKeys": {
 			"returnType": "string[]",
-			"description": "Returns the keys of the selected items in the dropdown",
-			"body": "return this.selectedItemKeys;"
+			"description": "Returns the keys of the selected items in the dropdown"
 		  },
 		  "addItems": {
 			"returnType": "string",
