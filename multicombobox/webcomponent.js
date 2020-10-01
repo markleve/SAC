@@ -144,7 +144,17 @@
             keys.forEach(key => {
                 allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
             });
-            this._viewModel.setProperty("/ProductCollection", allItems)
+            
+            this._viewModel.setProperty("/ProductCollection", allItems);
+        }
+
+        addItems(keys, values) {
+            var allItems = this._viewModel.getProperty("/ProductCollection");
+            keys.forEach( (key, index) => {
+                allItems.push({ProductId: key, Name: values[index]});
+            });
+            
+            this.getView().getModel().setProperty("/ProductCollection", allItems);
         }
     
     });
@@ -213,12 +223,6 @@
                         var keys = selectedItems.map(key => key.getKey());
 
                         that._firePropertiesChanged(texts, keys);
-
-                        //Add one item
-                        //var allItems = this.getView().getModel().getProperty("/ProductCollection");
-                        // allItems.push({ProductId: "productId", Name: "name"});
-                        //this.getView().getModel().setProperty("/ProductCollection", allItems)
-
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange"));
                     },

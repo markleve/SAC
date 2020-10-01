@@ -41,8 +41,19 @@
 			"body": "return this.selectedItemKeys;"
 		  },
 		  "addItems": {
-			"returnType": "string",
-			"description": "Adds new items to the dropdown"
+			"description": "Adds new items to the dropdown",
+			"parameters": [
+				{
+					"name": "keys",
+					"type": "string[]",
+					"description": "The keys of the items to be added"
+				},
+				{
+					"name": "values",
+					"type": "string[]",
+					"description": "The text values of the items to be added"
+				}
+			]
 		  },
 		  "getSelectedTexts": {
 			"returnType": "string[]",
