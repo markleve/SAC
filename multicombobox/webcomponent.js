@@ -193,8 +193,8 @@
                         that.dispatchEvent(new CustomEvent("onSelectionChange", {
                             detail: {
                                 properties: {
-                                    selectedItemText: selectedItemText,
-                                    selectedItemKey: selectedItemKey
+                                    selectedItemText: selectedItems.getText(),
+                                    selectedItemKey: selectedItems.getKey()
                                 }
                             }
                         }));
