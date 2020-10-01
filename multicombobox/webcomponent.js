@@ -176,9 +176,9 @@
                     handleSelectionFinish: function(oEvent) {
                         var selectedItems = oEvent.getParameter("selectedItems");
                         
-                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
+/*                         that.dispatchEvent(new CustomEvent("onSelectionChange", {
                             
-                        }));
+                        })); */
                     }
                 });
             });

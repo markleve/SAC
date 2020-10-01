@@ -25,23 +25,56 @@
 		}
     ],
 	"properties": {
-		"metadata": {
+		"selectedItems": {
 			"type": "string",
-			"description": "For internal use",
-			"default": ""
-		  }
+			"description": "The keys of the currently selected items",
+			"default" : ""
+		}
 	},
 	"methods": {
-		"getSelectedItems": {
+		"getSelectedKeys": {
 			"returnType": "string",
-			"description": "Get selected items",
+			"description": "Returns the keys of the selected items in the dropdown",
+			"body": "return this.selectedItems;"
+		  },
+		  "addItems": {
+			"returnType": "string",
+			"description": "Adds new items to the dropdown",
 			"parameters": [],
-			"body": "return _selectedItems;"
+			"body": "return this.selectedItems;"
+		  },
+		  "getSelectedTexts": {
+			"returnType": "string",
+			"description": "Returns the texts of the selected items in the dropdown",
+			"parameters": [],
+			"body": "return this.selectedItems;"
+		  },
+		  "removeAllItems": {
+			"returnType": "string",
+			"description": "Removes all items from the dropdown",
+			"parameters": [],
+			"body": "return this.selectedItems;"
+		  },
+		  "removeItem": {
+			"returnType": "string",
+			"description": "Removes an item from the dropdown",
+			"parameters": [],
+			"body": "return this.selectedItems;"
+		  },
+		  "setSelectedKeys": {
+			"returnType": "string",
+			"description": "Selects items in the dropdown",
+			"parameters": [],
+			"body": "return this.selectedItems;"
 		  }
 	},
 	"events": {
 		"onSelectionChange": {
-			"description": "Called when the user changes the selection"
+			"description": "Triggered when the selection is changed"
+		},
+		"onSelectionFinished": {
+			"description": "Triggered when the selection is finished"
 		}
+		
 	}
 }
