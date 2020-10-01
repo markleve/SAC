@@ -199,7 +199,7 @@
                     handleSelectionFinish: function(oEvent) {
                         var selectedItem = oEvent.getParameter("selectedItems");
 
-                        that._firePropertiesChanged(selectedItem.getText(), selectedItem.getKey());
+                        //that._firePropertiesChanged(selectedItem.getText(), selectedItem.getKey());
                         
                         that.dispatchEvent(new CustomEvent("onSelectionFinished"));
                     }
@@ -207,10 +207,6 @@
             });
 
             //### THE APP: place the XMLView somewhere into DOM ###
-
-            //var oView = sap.ui.jsview("myView.Template", {
-            //    viewContent
-            //});
             var oView  = sap.ui.xmlview({
                 viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
             });

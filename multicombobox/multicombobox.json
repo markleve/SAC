@@ -40,9 +40,9 @@
 			"description": "Returns the keys of the selected items in the dropdown",
 			"body": "return this.selectedItemKeys;"
 		  },
-		  "addItem": {
+		  "addItems": {
 			"returnType": "string",
-			"description": "Adds new item to the dropdown",
+			"description": "Adds new items to the dropdown",
 			"parameters": [],
 			"body": ""
 		  },
@@ -64,16 +64,16 @@
 			"parameters": [],
 			"body": ""
 		  },
-		  "setSelectedKey": {
-			"description": "Selects item in the dropdown",
+		  "setSelectedKeys": {
+			"description": "Selects items in the dropdown",
 			"parameters": [
 				{
 					"name": "value",
-					"type": "string",
-					"description": "The new key to be set"
+					"type": "string[]",
+					"description": "The new keys to be set"
 				}
 			],
-			"body": ""
+			"body": "this.selectedKeys = value;"
 		  }
 	},
 	"events": {
