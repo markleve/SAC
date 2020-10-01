@@ -30,17 +30,17 @@
 			"description": "The text of the selected item",
 			"default" : ""
 		},
-		"selectedItemKey": {
-			"type": "string",
-			"description": "The key of the selected item",
+		"selectedItemKeys": {
+			"type": "string[]",
+			"description": "The keys of the selected items",
 			"default" : ""
 		}
 	},
 	"methods": {
-		"getSelectedKey": {
-			"returnType": "string",
-			"description": "Returns the key of the selected item in the dropdown",
-			"body": "return this.selectedItemKey;"
+		"getSelectedKeys": {
+			"returnType": "string[]",
+			"description": "Returns the keys of the selected items in the dropdown",
+			"body": "return this.selectedItemKeys;"
 		  },
 		  "addItem": {
 			"returnType": "string",
@@ -67,9 +67,14 @@
 			"body": ""
 		  },
 		  "setSelectedKey": {
-			"returnType": "string",
 			"description": "Selects item in the dropdown",
-			"parameters": [],
+			"parameters": [
+				{
+					"name": "value",
+					"type": "string",
+					"description": "The new key to be set"
+				}
+			],
 			"body": ""
 		  }
 	},

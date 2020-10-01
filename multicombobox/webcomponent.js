@@ -105,12 +105,12 @@
         redraw(){
         }
         
-        _firePropertiesChanged(selectedItemText, selectedItemKey) {
+        _firePropertiesChanged(selectedItemText, selectedItemKeys) {
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
                 detail: {
                     properties: {
                         selectedItemText: selectedItemText,
-                        selectedItemKey: selectedItemKey
+                        selectedItemKeys: selectedItemKeys
                     }
                 }
             }));
@@ -186,26 +186,23 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        var selectedItems = oEvent.getParameter("changedItem");
+                        var selectedItem = oEvent.getParameter("changedItem");
 
-                        //that._firePropertiesChanged(selectedItems.getText(), selectedItems.getKey());
+                        var multicombobox = oEvent.getSource();
+                        var selectedKeys = multicombobox.getSelectedKeys();
+                        var selectedItems = multicombobox.getSelectedItems();
 
-                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
-                            detail: {
-                                properties: {
-                                    selectedItemText: selectedItems.getText(),
-                                    selectedItemKey: selectedItems.getKey()
-                                }
-                            }
-                        }));
+                        that._firePropertiesChanged(selectedItem.getText(), selectedKeys);
+
+                        that.dispatchEvent(new CustomEvent("onSelectionChange"));
                     },
         
                     handleSelectionFinish: function(oEvent) {
-                        var selectedItems = oEvent.getParameter("selectedItems");
+                        var selectedItem = oEvent.getParameter("selectedItems");
+
+                        that._firePropertiesChanged(selectedItem.getText(), selectedItem.getKey());
                         
-                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
-                            
-                        }));
+                        that.dispatchEvent(new CustomEvent("onSelectionFinished"));
                     }
                 });
             });
