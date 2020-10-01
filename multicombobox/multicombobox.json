@@ -37,18 +37,16 @@
 	"methods": {
 		"getSelectedKeys": {
 			"returnType": "string[]",
-			"description": "Returns the keys of the selected items in the dropdown"
+			"description": "Returns the keys of the selected items in the dropdown",
+			"body": "return this.selectedItemKeys;"
 		  },
 		  "addItems": {
 			"returnType": "string",
-			"description": "Adds new items to the dropdown",
-			"parameters": [],
-			"body": ""
+			"description": "Adds new items to the dropdown"
 		  },
 		  "getSelectedTexts": {
 			"returnType": "string[]",
 			"description": "Returns the texts of the selected items in the dropdown",
-			"parameters": [],
 			"body": "return this.selectedItemTexts;"
 		  },
 		  "removeAllItems": {

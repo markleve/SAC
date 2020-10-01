@@ -141,9 +141,9 @@
 
         removeItems(keys) {
             var allItems = this._viewModel.getProperty("/ProductCollection");
-            for(key in keys) {
+            keys.forEach(key => {
                 allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
-            }
+            });
             this._viewModel.setProperty("/ProductCollection", allItems)
         }
     
