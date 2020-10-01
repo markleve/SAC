@@ -27,13 +27,11 @@
 	"properties": {
 		"selectedItemText": {
 			"type": "string",
-			"description": "The text of the selected item",
-			"default" : ""
+			"description": "The text of the selected item"
 		},
 		"selectedItemKeys": {
 			"type": "string[]",
-			"description": "The keys of the selected items",
-			"default" : ""
+			"description": "The keys of the selected items"
 		}
 	},
 	"methods": {

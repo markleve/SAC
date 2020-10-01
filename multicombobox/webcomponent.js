@@ -125,11 +125,11 @@
             this._selectedItemText = value;
         }
 
-        get selectedItemKey() {
+        get selectedItemKeys() {
             return this._selectedItemKey;
         }
 
-        set selectedItemKey(value) {
+        set selectedItemKeys(value) {
             this._selectedItemKey = value;
         }    
     
