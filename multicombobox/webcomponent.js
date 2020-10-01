@@ -188,9 +188,16 @@
                     handleSelectionChange: function(oEvent) {
                         var selectedItems = oEvent.getParameter("changedItem");
 
-                        that._firePropertiesChanged(selectedItems.getText(), selectedItems.getKey());
+                        //that._firePropertiesChanged(selectedItems.getText(), selectedItems.getKey());
 
-                        that.dispatchEvent(new CustomEvent("onSelectionChange"));
+                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
+                            detail: {
+                                properties: {
+                                    selectedItemText: selectedItemText,
+                                    selectedItemKey: selectedItemKey
+                                }
+                            }
+                        }));
                     },
         
                     handleSelectionFinish: function(oEvent) {
