@@ -196,6 +196,10 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
+                        if(that._new_keys != []) {
+                            oEvent.getSource().setSelectedKeys(that._new_keys);
+                        }
+
                         var selectedItems = oEvent.getSource().getSelectedItems();
 
                         var texts = selectedItems.map(key => key.getText());
@@ -204,10 +208,6 @@
                         that._firePropertiesChanged(texts, keys);
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange"));
-
-                        if(that._new_keys != []) {
-                            selectedItems.setSelectedKeys(that._new_keys);
-                        }
                     },
         
                     handleSelectionFinish: function(oEvent) {
