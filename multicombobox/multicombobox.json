@@ -68,12 +68,12 @@
 			"description": "Selects items in the dropdown",
 			"parameters": [
 				{
-					"name": "value",
+					"name": "keys",
 					"type": "string[]",
 					"description": "The new keys to be set"
 				}
 			],
-			"body": "this.selectedKeys = value;"
+			"body": "this.selectedItemKeys = keys;"
 		  }
 	},
 	"events": {
