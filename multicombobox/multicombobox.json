@@ -25,29 +25,34 @@
 		}
     ],
 	"properties": {
-		"selectedItems": {
+		"selectedItemText": {
 			"type": "string",
-			"description": "The keys of the currently selected items",
+			"description": "The text of the selected item",
+			"default" : ""
+		},
+		"selectedItemKey": {
+			"type": "string",
+			"description": "The key of the selected item",
 			"default" : ""
 		}
 	},
 	"methods": {
-		"getSelectedKeys": {
+		"getSelectedKey": {
 			"returnType": "string",
-			"description": "Returns the keys of the selected items in the dropdown",
-			"body": "return this.selectedItems;"
+			"description": "Returns the key of the selected item in the dropdown",
+			"body": "return this.selectedItemKey;"
 		  },
-		  "addItems": {
+		  "addItem": {
 			"returnType": "string",
-			"description": "Adds new items to the dropdown",
+			"description": "Adds new item to the dropdown",
 			"parameters": [],
 			"body": "return this.selectedItems;"
 		  },
-		  "getSelectedTexts": {
+		  "getSelectedText": {
 			"returnType": "string",
-			"description": "Returns the texts of the selected items in the dropdown",
+			"description": "Returns the text of the selected item in the dropdown",
 			"parameters": [],
-			"body": "return this.selectedItems;"
+			"body": "return this.selectedItemText;"
 		  },
 		  "removeAllItems": {
 			"returnType": "string",
@@ -61,9 +66,9 @@
 			"parameters": [],
 			"body": "return this.selectedItems;"
 		  },
-		  "setSelectedKeys": {
+		  "setSelectedKey": {
 			"returnType": "string",
-			"description": "Selects items in the dropdown",
+			"description": "Selects item in the dropdown",
 			"parameters": [],
 			"body": "return this.selectedItems;"
 		  }

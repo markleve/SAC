@@ -1,7 +1,6 @@
 (function()  {
     let _shadowRoot;
     let _id;
-    let _selectedItems;
 
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
@@ -104,10 +103,10 @@
         }
 
         //Getters and setters
-        get getSelectedItems() {
+/*         get getSelectedItems() {
             return _selectedItems;
 
-        }
+        } */
     
     
     });
@@ -163,12 +162,15 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        _selectedItems = oEvent.getParameter("selectedItems");
+                        var selectedItems = oEvent.getParameter("changedItem");
 
                         that.dispatchEvent(new CustomEvent("onSelectionChange", {
-/*                             detail: {
-                                selectedItems: selectedItems
-                            } */
+                            detail: {
+                                properties: {
+                                    selectedItemText: selectedItems.getText(),
+                                    selectedItemKey: selectedItems.getKey()
+                                }
+                            }
 
                         }));
                     },
@@ -176,9 +178,9 @@
                     handleSelectionFinish: function(oEvent) {
                         var selectedItems = oEvent.getParameter("selectedItems");
                         
-/*                         that.dispatchEvent(new CustomEvent("onSelectionChange", {
+                        that.dispatchEvent(new CustomEvent("onSelectionChange", {
                             
-                        })); */
+                        }));
                     }
                 });
             });
