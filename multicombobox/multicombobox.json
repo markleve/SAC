@@ -54,11 +54,15 @@
 		  "removeAllItems": {
 			"description": "Removes all items from the dropdown"
 		  },
-		  "removeItem": {
-			"returnType": "string",
-			"description": "Removes an item from the dropdown",
-			"parameters": [],
-			"body": ""
+		  "removeItems": {
+			"description": "Remove specific items from the dropdown",
+			"parameters": [
+				{
+					"name": "keys",
+					"type": "string[]",
+					"description": "The keys of the items to be removed"
+				}
+			]
 		  },
 		  "setSelectedKeys": {
 			"description": "Selects items in the dropdown",

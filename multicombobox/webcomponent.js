@@ -138,6 +138,14 @@
         removeAllItems() {
             this._viewModel.setProperty("/ProductCollection", {});
         }
+
+        removeItems(keys) {
+            var allItems = this._viewModel.getProperty("/ProductCollection");
+            for(key in keys) {
+                allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
+            }
+            this._viewModel.setProperty("/ProductCollection", allItems)
+        }
     
     });
 
@@ -205,14 +213,6 @@
                         var keys = selectedItems.map(key => key.getKey());
 
                         that._firePropertiesChanged(texts, keys);
-
-                        //Remove all items
-                        //this.getView().getModel().setProperty("/ProductCollection", {});
-
-                        //Remove one item
-                        //var allItems = this.getView().getModel().getProperty("/ProductCollection");
-                        // allItems.splice(allItems.findIndex(item => item.ProductId === "HT-1001"),1);
-                        //this.getView().getModel().setProperty("/ProductCollection", allItems)
 
                         //Add one item
                         //var allItems = this.getView().getModel().getProperty("/ProductCollection");
