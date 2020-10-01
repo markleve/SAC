@@ -196,7 +196,7 @@
                     },
         
                     handleSelectionChange: function(oEvent) {
-                        if(that._new_keys != []) {
+                        if(that._new_keys.length > 0) {
                             oEvent.getSource().setSelectedKeys(that._new_keys);
                         }
 
