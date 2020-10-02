@@ -136,25 +136,26 @@
         }
 
         removeAllItems() {
-            this._multicombobox.getModel().setProperty("/ProductCollection", {});
+            this._viewModel.setProperty("/ProductCollection", {});
         }
 
         removeItems(keys) {
-            var allItems = this._multicombobox.getModel().getProperty("/ProductCollection");
+            var allItems = this._viewModel.getProperty("/ProductCollection");
             keys.forEach(key => {
                 allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
             });
 
-            this._multicombobox.getModel().setProperty("/ProductCollection", allItems);
+            this._viewModel.setProperty("/ProductCollection", allItems);
         }
 
         addItems(keys, values) {
-            var allItems = this._multicombobox.getModel().getProperty("/ProductCollection");
+            var allItems = this._viewModel.getProperty("/ProductCollection");
             keys.forEach( (key, index) => {
                 allItems.push({ProductId: key, Name: values[index]});
             });
             
-            this._multicombobox.getModel().setProperty("/ProductCollection", allItems);
+            this._viewModel.setProperty("/ProductCollection", allItems);
+            this._viewModel.refresh(true);
         }
     
     });
