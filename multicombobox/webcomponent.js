@@ -136,25 +136,25 @@
         }
 
         removeAllItems() {
-            this._viewModel.setProperty("/ProductCollection", {});
+            this._multicombobox.getModel().setProperty("/ProductCollection", {});
         }
 
         removeItems(keys) {
-            var allItems = this._viewModel.getProperty("/ProductCollection");
+            var allItems = this._multicombobox.getModel().getProperty("/ProductCollection");
             keys.forEach(key => {
                 allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
             });
 
-            this._viewModel.setProperty("/ProductCollection", allItems);
+            this._multicombobox.getModel().setProperty("/ProductCollection", allItems);
         }
 
         addItems(keys, values) {
-            var allItems = this._viewModel.getProperty("/ProductCollection");
+            var allItems = this._multicombobox.getModel().getProperty("/ProductCollection");
             keys.forEach( (key, index) => {
                 allItems.push({ProductId: key, Name: values[index]});
             });
             
-            this._viewModel.setProperty("/ProductCollection", allItems);
+            this._multicombobox.getModel().setProperty("/ProductCollection", allItems);
         }
     
     });
@@ -184,6 +184,7 @@
                         // set explored app's demo model on this sample
                         var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
                         this.getView().setModel(oModel);
+                        sap.ui.getCore().setModel(oModel);
 
                         that._viewModel = this.getView().getModel();
 
