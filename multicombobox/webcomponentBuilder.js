@@ -1,44 +1,8 @@
 (function() {
 	let template = document.createElement("template");
 	template.innerHTML = `
-        <form id="form">
-        <fieldset>
-            <legend>Color Properties</legend>
-            <Table
-				rows=""
-				selectionMode="MultiToggle"
-				visibleRowCount="7"
-				paste="onPaste"
-				ariaLabelledBy="title">
-				<extension>
-					<m:OverflowToolbar>
-						<m:Title id="title" text="Products"/>
-					</m:OverflowToolbar>
-				</extension>
-				<columns>
-                    <Column width="11rem">
-                        <m:Label text="ID" />
-                            <template>
-                                <m:Input value="Ha"/>
-                            </template>
-                    </Column>
-					<Column width="11rem">
-						<m:Label text="Text (Optional)" />
-						<template>
-							<m:Input value="aa"/>
-						</template>
-                    </Column>
-                    <Column width="11rem">
-						<m:Label text="Text (Optional)" />
-						<template>
-							<m:Input value="a"/>
-						</template>
-					</Column>
-				</columns>
-			</Table>
-            <input type="submit" style="display:none;">
-        </fieldset>
-    </form>
+
+
 
     <style>
     :host {
@@ -46,6 +10,10 @@
         padding: 1em 1em 1em 1em;
     }
     </style>
+
+    <div id="ui5_content" name="ui5_content">
+        <slot name="content"></slot>
+    </div>
 
             
 	`;
@@ -98,6 +66,20 @@ function buildTable(that) {
     let content = document.createElement('div');
     content.slot = "content";
     that_.appendChild(content);
+
+    sap.ui.getCore().attachInit(function () {
+        "use strict";
+
+        //### Controller ###
+        sap.ui.define("nameOfController", [
+            "jquery.sap.global",
+            "sap/ui/core/mvc/Controller",
+            "sap/ui/model/json/JSONModel"
+        ], function (jQuery, Controller, JSONModel) {
+            "use strict";
+
+            return Controller.extend("myView.Template");
+        });
 
     var oView = sap.ui.jsview("myView.Template", {
 
