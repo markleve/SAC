@@ -18,8 +18,15 @@
         },
 		{
 			"kind": "styling",
-			"tag": "com-sap-sample-multicombobox-style",
+			"tag": "com-sap-sample-multicombobox-styling",
             "url": "https://markleve.github.io/SAC/multicombobox/webcomponentStyling.js",
+			"integrity": "",
+            "ignoreIntegrity" : true
+		},
+		{
+			"kind": "builder",
+			"tag": "com-sap-sample-multicombobox-builder",
+            "url": "https://markleve.github.io/SAC/multicombobox/webcomponentBuilder.js",
 			"integrity": "",
             "ignoreIntegrity" : true
 		}

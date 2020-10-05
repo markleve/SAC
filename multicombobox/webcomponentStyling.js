@@ -5,7 +5,7 @@
 		</style>
 	`;
 
-	class MulticomboBox extends HTMLElement {
+	class MulticomboBoxStyler extends HTMLElement {
 		constructor() {
 			super();
 			this._shadowRoot = this.attachShadow({mode: "open"});
@@ -43,5 +43,5 @@
 
 	}
 
-customElements.define("com-sap-sample-multicombobox-style", MulticomboBox);
+customElements.define("com-sap-sample-multicombobox-styling", MulticomboBoxStyler);
 })();
