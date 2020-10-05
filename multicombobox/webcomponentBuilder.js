@@ -1,16 +1,6 @@
 (function() {
 	let template = document.createElement("template");
 	template.innerHTML = `
-
-
-
-    <style>
-    :host {
-        display: block;
-        padding: 1em 1em 1em 1em;
-    }
-    </style>
-
     <div id="ui5_content" name="ui5_content">
         <slot name="content"></slot>
     </div>
@@ -89,51 +79,44 @@ function buildTable(that) {
              */
             createContent: function (oController) {
 
-                 var table = new sap.ui.table.Table({
-                                    title: 'Table title',
-                                    toolbar: new sap.m.Toolbar({
-                                        content: [
-                                            new sap.m.Button({
-                                                icon: "sap-icon://add",
-                                                press: function() {
-                                                    sap.m.MessageToast.show("Pressed add");
-                                                }
+                var table = new sap.ui.table.Table({
+                    title: 'Table title',
+                    toolbar: new sap.m.Toolbar({
+                        content: [
+                            new sap.m.Button({
+                                icon: "sap-icon://add",
+                                press: function() {
+                                    sap.m.MessageToast.show("Pressed add");
+                                }
                         
-                                            }),
-                                            new sap.m.Button({
-                                                icon: "sap-icon://delete",
-                                                press: function() {
-                                                    sap.m.MessageToast.show("Pressed delete");
-                                                }
-                        
-                                            })
-                                        ]
-                                    }),
-                                    columns: [
-                                        new sap.ui.table.Column({
-                                            label: new sap.m.Label({text: "ID"}),
-                                            template: new sap.m.Input({
-                                                value: "AA"
-                                            })
-                                        }),
-                                        new sap.ui.table.Column({
-                                            label: new sap.m.Label({text: "Text(Optional)"}),
-                                            template: new sap.m.Input({
-                                                value: "BB"
-                                            })
-                                        }),
-                                        new sap.ui.table.Column({
-                                            label: new sap.m.Label({text: "Default"}),
-                                            template: new sap.m.RadioButton({
-                                                selected: "{checked}"
-                                            })
-                                        })
-                                    ]
-                                });
-                                return table;
+                            }),
+                            new sap.m.Button({
+                                icon: "sap-icon://delete",
+                                press: function() {
+                                    sap.m.MessageToast.show("Pressed delete");
+                                }
+                            })
+                        ]
+                    }),
+                    columns: [
+                        new sap.ui.table.Column({
+                            label: new sap.m.Label({text: "ID"}),
+                            template: new sap.m.Input({ value: "AA" })
+                        }),
+                        new sap.ui.table.Column({
+                            label: new sap.m.Label({text: "Text(Optional)"}),
+                            template: new sap.m.Input({ value: "BB" })
+                        }),
+                        new sap.ui.table.Column({
+                            label: new sap.m.Label({text: "Default"}),
+                            template: new sap.m.RadioButton({ selected: "{checked}" })
+                        })
+                    ]
+                });
+                return table;
             }
         });
-        
+
         oView.placeAt(content);
     });
 }
