@@ -80,108 +80,62 @@ function buildTable(that) {
 
             return Controller.extend("myView.Template");
         });
+        //### THE APP: place the XMLView somewhere into DOM ###
+        var oView = sap.ui.jsview("myView.Template", {
 
-    var oView = sap.ui.jsview("myView.Template", {
+            /** Is initially called once after the Controller has been instantiated. It is the place where the UI is constructed. 
+             * Since the Controller is given to this method, its event handlers can be attached right away. 
+             * @memberOf maintplan.PlannedKm.view.kmTable
+             */
+            createContent: function (oController) {
 
-        /** Is initially called once after the Controller has been instantiated. It is the place where the UI is constructed. 
-         * Since the Controller is given to this method, its event handlers can be attached right away. 
-         * @memberOf maintplan.PlannedKm.view.kmTable
-         */
-        createContent: function (oController) {
-
-            var table = new sap.ui.table.Table({
-                title: 'Table title',
-                toolbar: new sap.m.Toolbar({
-                    content: [
-                        new sap.m.Button({
-                            icon: "sap-icon://add",
-                            press: function() {
-                                sap.m.MessageToast.show("Pressed add");
-                            }
-    
-                        }),
-                        new sap.m.Button({
-                            icon: "sap-icon://delete",
-                            press: function() {
-                                sap.m.MessageToast.show("Pressed delete");
-                            }
-    
-                        })
-                    ]
-                }),
-                columns: [
-                    new sap.ui.table.Column({
-                        label: new sap.m.Label({text: "ID"}),
-                        template: new sap.m.Input({
-                            value: "AA"
-                        })
-                    }),
-                    new sap.ui.table.Column({
-                        label: new sap.m.Label({text: "Text(Optional)"}),
-                        template: new sap.m.Input({
-                            value: "BB"
-                        })
-
-                    }),
-                    new sap.ui.table.Column({
-                        label: new sap.m.Label({text: "Default"}),
-                        template: new sap.m.RadioButton({
-                            selected: "{checked}"
-                        })
-
-                    })
-
-                ]
-
-            });
-
-/*             table.setToolbar(new sap.m.Toolbar({
-                content: [
-                    new sap.m.Button({
-                        icon: "sap-icon://add",
-                        press: function() {
-                            sap.m.MessageToast.show("Pressed add");
-                        }
-
-                    }),
-                    new sap.m.Button({
-                        icon: "sap-icon://delete",
-                        press: function() {
-                            sap.m.MessageToast.show("Pressed delete");
-                        }
-
-                    })
-                ]
-            }));
- */
-
-
-/*             var MultiCompboBox = new sap.m.MultiCompboBox({
-                selectionChange: [oController.handleSelectionChange, oController],
-                selectionFinish: [oController.handleSelectionFinish, oController],
-                items: [
-                    new sap.ui.core.Item({
-                        id: "selection1",
-                        key: "selection1",
-                        text: "Selection 1 (new)"
-                    }),
-                    new sap.ui.core.Item({
-                        id: "selection2",
-                        key: "selection2",
-                        text: "Selection 2 (new)"
-                    }),
-                    new sap.ui.core.Item({
-                        id: "selection3",
-                        key: "selection3",
-                        text: "Selection 3 (new)"
-                    })
-                ]
-            }); */
-            return table;
-        }
+                 var table = new sap.ui.table.Table({
+                                    title: 'Table title',
+                                    toolbar: new sap.m.Toolbar({
+                                        content: [
+                                            new sap.m.Button({
+                                                icon: "sap-icon://add",
+                                                press: function() {
+                                                    sap.m.MessageToast.show("Pressed add");
+                                                }
+                        
+                                            }),
+                                            new sap.m.Button({
+                                                icon: "sap-icon://delete",
+                                                press: function() {
+                                                    sap.m.MessageToast.show("Pressed delete");
+                                                }
+                        
+                                            })
+                                        ]
+                                    }),
+                                    columns: [
+                                        new sap.ui.table.Column({
+                                            label: new sap.m.Label({text: "ID"}),
+                                            template: new sap.m.Input({
+                                                value: "AA"
+                                            })
+                                        }),
+                                        new sap.ui.table.Column({
+                                            label: new sap.m.Label({text: "Text(Optional)"}),
+                                            template: new sap.m.Input({
+                                                value: "BB"
+                                            })
+                                        }),
+                                        new sap.ui.table.Column({
+                                            label: new sap.m.Label({text: "Default"}),
+                                            template: new sap.m.RadioButton({
+                                                selected: "{checked}"
+                                            })
+                                        })
+                                    ]
+                                });
+                                return table;
+            }
+        });
+        
+        oView.placeAt(content);
     });
-
-    oView.placeAt(content);
-
 }
+
 })();
