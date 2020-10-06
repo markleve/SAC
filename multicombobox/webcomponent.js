@@ -26,8 +26,8 @@
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
 			            width="350px"
-			            items="{/ProductCollection}">
-			            <core:Item key="{ProductId}" text="{Name}"/>
+			            items="{/SelectionList}">
+			            <core:Item key="{id}" text="{text}"/>
 		            </MultiComboBox>
 	            </l:VerticalLayout>
             </mvc:View>
@@ -184,8 +184,8 @@
                     onInit: function () {
                         // set explored app's demo model on this sample
                         var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
-                        this.getView().setModel(oModel);
-                        sap.ui.getCore().setModel(oModel);
+/*                         this.getView().setModel(oModel);
+                        sap.ui.getCore().setModel(oModel); */
 
                         that._viewModel = this.getView().getModel();
 
