@@ -133,7 +133,7 @@
 
             _id = createGuid();
 
-            this._shadowRoot.querySelector("#undefined_oView").id = this._id + "_oView";
+            this._shadowRoot.querySelector("#oView").id = this._id + "_oView";
 
 
             _shadowRoot = this._shadowRoot;
