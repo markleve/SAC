@@ -21,11 +21,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:m="sap.m"
 	height="100%">
-    <m:Panel
-        expandable="true" 
-        headerText="Multicombo select values" 
-        width="auto">
-		<m:content>
+
 			<Table
 				id="table1"
 				ariaLabelledBy="title"
@@ -49,8 +45,6 @@
 					</Column>
 				</columns>
 			</Table>
-		</m:content>
-	</m:Panel>
 </mvc:View>
 
 </script>
