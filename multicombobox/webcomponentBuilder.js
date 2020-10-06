@@ -22,7 +22,8 @@
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
         <Table id="idProductsTable"
-		inset="false"
+        inset="false"
+        selectionChange="onSelectionChange"
 		items="{/SelectionList}">
 		<headerToolbar>
 			<OverflowToolbar>
@@ -163,6 +164,10 @@ function buildTable(that) {
                 onAddRow: function(oEvent) {
                     this._data.SelectionList.push({id : '', text : '', selected: false});
 		            this.jModel.refresh();
+                },
+
+                onSelectionChange: function(oEvent) {
+                    var bSelected = oEvent.getParameter("selected");
                 },
 
                 onDeleteRow: function(oEvent) {
