@@ -13,7 +13,7 @@
     <slot name="content"> </slot>
     </div>
    
-    <script id="oView" name="oView" type="sapui5/xmlview">
+    <script id="test_oView" name="oView" type="sapui5/xmlview">
     <mvc:View
 	controllerName="sap.m.sample.Table.Table"
 	xmlns:mvc="sap.ui.core.mvc"
@@ -133,9 +133,9 @@
 
             _id = createGuid();
 
-            this._shadowRoot.querySelector("#oView").id = this._id + "_oView";
+            this._shadowRoot.querySelector("#test_oView").id = this._id + "_oView";
 
-            
+
             _shadowRoot = this._shadowRoot;
 		}
 
