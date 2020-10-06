@@ -20,7 +20,7 @@
 	xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core"
     xmlns:m="sap.m"
-    xmlns:table="sap.ui.table">
+    xmlns="sap.ui.table">
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
             <Table id="table1"
