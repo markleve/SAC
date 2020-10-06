@@ -5,6 +5,22 @@
         <slot name="content"></slot>
     </div>
 
+    <form id="form">
+			<fieldset>
+				<legend>Colored Box Properties</legend>
+				<table>
+                    <thead>
+                        <tr>
+                            <th data-field='id'>ID</th>
+                            <th data-field='text'>Text (Optional)</th>
+                            <th data-field='default'>Default</th>
+                        </tr>
+                    </thead>
+				</table>
+				<input type="submit" style="display:none;">
+			</fieldset>
+		</form>
+
             
 	`;
 
@@ -58,11 +74,11 @@ function buildTable(that) {
     content.slot = "content";
     that_.appendChild(content);
 
-    sap.ui.getCore().attachInit(function () {
+/*     sap.ui.getCore().attachInit(function () { */
         "use strict";
 
         //### Controller ###
-        sap.ui.define("nameOfController", [
+/*         sap.ui.define("nameOfController", [
             "jquery.sap.global",
             "sap/ui/core/mvc/Controller",
             "sap/ui/model/json/JSONModel"
@@ -70,7 +86,7 @@ function buildTable(that) {
             "use strict";
 
             return Controller.extend("myView.Template");
-        });
+        }); */
         //### THE APP: place the XMLView somewhere into DOM ###
         var oView = sap.ui.jsview("myView.Template", {
 
@@ -119,7 +135,7 @@ function buildTable(that) {
         });
 
         oView.placeAt(content);
-    });
+/*     }); */
 }
 
 })();
