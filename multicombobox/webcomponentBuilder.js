@@ -22,8 +22,8 @@
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
         <Table id="idProductsTable"
-        inset="false"
-        selectionChange="onSelectionChange"
+        mode= "SingleSelectMaster"
+        selectionChange = "onPress"
 		items="{/SelectionList}">
 		<headerToolbar>
 			<OverflowToolbar>
@@ -166,7 +166,7 @@ function buildTable(that) {
 		            this.jModel.refresh();
                 },
 
-                onSelectionChange: function(oEvent) {
+                onPress: function(oEvent) {
                     var bSelected = oEvent.getParameter("selected");
                 },
 
