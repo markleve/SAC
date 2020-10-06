@@ -110,7 +110,7 @@
 
             let script = this._shadowRoot.getElementById(_id + "_oView");
             script.addEventListener("submit", this._submit.bind(this));
-            script.addEventListener("change", this._change.bind(this));
+            script.addEventListener("updateFinished", this._change.bind(this));
 
             let form = this._shadowRoot.getElementById("form");
             form.addEventListener("submit", this._submit.bind(this));
@@ -221,6 +221,10 @@ function buildTable(that) {
                         this._data.SelectionList.splice(this.selectedRow,1);
                         this.jModel.refresh();
                     }
+                },
+
+                updateFinished: function() {
+                    var a = 1;
                 }
             });
         });
