@@ -155,7 +155,9 @@ function buildTable(that) {
                 },
 
                 onBeforeRendering: function() {
-                    this.byId('ins').setModel(this.jModel);	
+                    this.getView().setModel(this.jModel);
+                    sap.ui.getCore().setModel(this.jModel);
+/*                     this.byId('ins').setModel(this.jModel); */	
                 },
 
                 onAddRow: function(oEvent) {
