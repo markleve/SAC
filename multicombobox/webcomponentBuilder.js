@@ -28,6 +28,9 @@
 		<headerToolbar>
 			<OverflowToolbar>
                 <content>
+                <ToggleButton id="apply"
+                        text="Apply chnage"
+                        press="onApply" />
                     <ToolbarSpacer/>
 					<ToggleButton id="addRow"
                         icon="sap-icon://add"
@@ -63,35 +66,6 @@
 	</Panel>
 </mvc:View>
 </script>
-
-<form id="form" autocomplete="off">
-<fieldset> 
-  <legend>General</legend>
-  <table>
-    <tr>
-      <td><label for="Title">Title</label></td>
-      <td><input id="title" name="title" type="text"></td>
-    </tr>
-    <tr>
-      <td><label for="Sub Title">Sub Title</label></td>
-      <td><input id="subtitle" name="subtitle" type="text"></td>
-    </tr>
-    <tr>
-      <td><label for="Icon">Icon</label></td>
-      <td><input id="icon" name="icon" type="text"></td>
-    </tr>
-    <tr>
-      <td><label for="Unit">Unit</label></td>
-      <td><input id="unit" name="unit" type="text"></td>
-    </tr>
-    <tr>
-      <td><label for="Footer">Footer</label></td>
-      <td><input id="footer" name="footer" type="text"></td>
-    </tr>
-  </table>
-</fieldset>
-<button type="submit" hidden>Submit</button>
-</form>
 	`;
 
 	class MulticomboBoxBuilder extends HTMLElement {
@@ -107,14 +81,6 @@
 
 
             _shadowRoot = this._shadowRoot;
-
-            let script = this._shadowRoot.getElementById(_id + "_oView");
-            script.addEventListener("submit", this._submit.bind(this));
-            script.addEventListener("updateFinished", this._change.bind(this));
-
-            let form = this._shadowRoot.getElementById("form");
-            form.addEventListener("submit", this._submit.bind(this));
-            form.addEventListener("change", this._change.bind(this));
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -122,18 +88,12 @@
             this.redraw();
         }
 
-        _submit(e) {
-            e.preventDefault();
-            let properties = {};
-            for (let name of MultiInputAps.observedAttributes) {
-                properties[name] = this[name];
-            }
-            this._firePropertiesChanged(properties);
-            return false;
-        }
-
-        _change(e) {
-            this._changeProperty(e.target.name);
+        _changeProperty(property) {
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    haha: property
+                }
+            }));
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
@@ -223,8 +183,9 @@ function buildTable(that) {
                     }
                 },
 
-                updateFinished: function() {
-                    var a = 1;
+                onApply: function(oEvent) {
+                    that_._changeProperty("value");
+
                 }
             });
         });

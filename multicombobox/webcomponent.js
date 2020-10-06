@@ -130,6 +130,15 @@
         set selectedItemKeys(value) {
             this._selectedItemKey = value;
         }
+
+        get haha() {
+            return this._haha;
+
+        }
+
+        set haha(value) {
+            this._haha = value;
+        }
         
         setSelectedKeys(oChangedProperties) {
             this._multicombobox.setSelectedKeys(oChangedProperties);
