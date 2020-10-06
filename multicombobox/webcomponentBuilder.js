@@ -41,21 +41,21 @@
 				</extension>
 				<columns>
 					<Column width="10rem">
-						<m:Label text="ID" />
+						<m:Label text="ID"/>
 						<template>
 							<m:Input value="{id}"/>
 						</template>
                     </Column>
                     <Column width="10rem">
-						<m:Label text="Text(Optional)" />
+						<m:Label text="Text(Optional)"/>
 						<template>
 							<m:Input value="{text}"/>
 						</template>
                     </Column>
                     <Column width="10rem">
-						<m:Label text="Default" />
+						<m:Label text="Default"/>
 						<template>
-                            <RadioButton selected="{selected}" />
+                            <m:RadioButton selected="{selected}"/>
 						</template>
 					</Column>
 				</columns>
