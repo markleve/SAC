@@ -62,7 +62,6 @@
 		</content>
 	</Panel>
 </mvc:View>
-<button type="submit" hidden>Submit</button>
 </script>
 	`;
 
