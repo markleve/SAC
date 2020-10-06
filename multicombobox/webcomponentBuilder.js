@@ -141,14 +141,26 @@ function buildTable(that) {
 
                 onInit: function() {
 
-                    var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": true}]});
-                    this.getView().setModel(oModel);
-                    sap.ui.getCore().setModel(oModel);
+                    this._data = {
+                        SelectionList : [ 
+                                    { id : 'Clock' , text : '1X2X5', selected: true}]	
+                    };
+                    
+                    this.jModel = new sap.ui.model.json.JSONModel();
+                    this.jModel.setData(this._data);
 
+/*                     var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": true}]});
+                    this.getView().setModel(oModel);
+                    sap.ui.getCore().setModel(oModel); */
+                },
+
+                onBeforeRendering: function() {
+                    this.byId('ins').setModel(this.jModel);	
                 },
 
                 onAddRow: function(oEvent) {
-
+                    this._data.SelectionList.push({id : '', text : '', selected: false});
+		            this.jModel.refresh();
                 },
 
                 onDeleteRow: function(oEvent) {
