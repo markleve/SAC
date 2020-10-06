@@ -21,10 +21,10 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:m="sap.m"
 	height="100%">
-	<m:Page
-		showHeader="false"
-		enableScrolling="false"
-		class="sapUiContentPadding">
+    <m:Panel
+        expandable="true" 
+        headerText="Multicombo select values" 
+        width="auto">
 		<m:content>
 			<Table
 				id="table1"
@@ -50,7 +50,7 @@
 				</columns>
 			</Table>
 		</m:content>
-	</m:Page>
+	</m:Panel>
 </mvc:View>
 
 </script>
