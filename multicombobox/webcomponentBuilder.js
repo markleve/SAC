@@ -16,146 +16,54 @@
     <script id="oView" name="oView" type="sapui5/xmlview">
 
     <mvc:View
-	controllerName="myView.Template"
-	xmlns="sap.ui.table"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:u="sap.ui.unified"
-	xmlns:c="sap.ui.core"
-	xmlns:m="sap.m"
-    height="100%">
-	<m:Page
-		showHeader="false"
-		enableScrolling="false"
-		class="sapUiContentPadding">
-		<m:content>
-			<Table
-				rows="{/ProductCollection}"
-				selectionMode="MultiToggle"
-				visibleRowCount="7"
-				paste="onPaste"
-				ariaLabelledBy="title">
-				<extension>
-					<m:OverflowToolbar>
-						<m:Title id="title" text="Products"/>
-					</m:OverflowToolbar>
-				</extension>
-				<columns>
-					<Column width="11rem">
-						<m:Label text="Product Name" />
-						<template>
-							<m:Text text="{Name}" wrapping="false" />
-						</template>
-					</Column>
-					<Column width="11rem">
-						<m:Label text="Product Id" />
-						<template>
-							<m:Input value="{ProductId}"/>
-						</template>
-					</Column>
-					<Column width="6rem" hAlign="End">
-						<m:Label text="Quantity" />
-						<template>
-							<m:Label text="{Quantity}" />
-						</template>
-					</Column>
-					<Column width="9rem">
-						<m:Label text="Status" />
-						<template>
-							<m:ObjectStatus text="{Status}" state="{
-								path: 'Available',
-								formatter: '.formatAvailableToObjectState'
-							}"/>
-						</template>
-					</Column>
-					<Column width="9rem">
-						<m:Label text="Price" />
-						<template>
-							<u:Currency value="{Price}" currency="{CurrencyCode}"/>
-						</template>
-					</Column>
-					<Column width="12rem">
-						<m:Label text="Supplier" />
-						<template>
-							<m:ComboBox value="{SupplierName}" items="{/Suppliers}">
-								<c:Item text="{Name}"/>
-							</m:ComboBox>
-						</template>
-					</Column>
-					<Column width="9rem">
-						<m:Label text="Image" />
-						<template>
-							<m:Link text="Show Image" href="{ProductPicUrl}" target="_blank"/>
-						</template>
-					</Column>
-					<Column width="9rem">
-						<m:Label text="Details" />
-						<template>
-							<m:Button text="Show Details" press="handleDetailsPress"/>
-						</template>
-					</Column>
-					<Column width="7rem">
-						<m:Label text="Heavy Weight" />
-						<template>
-							<m:CheckBox selected="{
-								path: 'Heavy',
-								type: 'sap.ui.model.type.String'
-							}"/>
-						</template>
-					</Column>
-					<Column width="12rem">
-						<m:Label text="Main Category" />
-						<template>
-							<m:Select selectedKey="{Category}" items="{/Categories}">
-								<c:Item text="{Name}" key="{Name}"/>
-							</m:Select>
-						</template>
-					</Column>
-					<Column width="12rem">
-						<m:Label text="Additional Categories" />
-						<template>
-							<m:MultiInput
-								tokenUpdate="updateMultipleSelection"
-								value="{AdditionalCategory}"
-								tokens="{AdditionalCategoriesSelection}"
-								suggestionItems="{
-									path: '/Categories',
-									sorter: { path: 'Name' }
-								}"
-								showValueHelp="false"
-								>
-								<m:tokens>
-									<m:Token key="{Key}" text="{Name}"/>
-								</m:tokens>
-								<m:suggestionItems>
-									<c:Item key="{ProductId}" text="{Name}" />
-								</m:suggestionItems>
-							</m:MultiInput>
-						</template>
-					</Column>
-					<Column width="6rem" hAlign="Center">
-						<m:Label text="Status" />
-						<template>
-							<c:Icon src="{
-								path: 'Available',
-								formatter: '.formatAvailableToIcon'
-							}"/>
-						</template>
-					</Column>
-					<Column width="11rem" hAlign="Center">
-						<m:Label text="Delivery Date" />
-						<template>
-							<m:DatePicker value="{
-								path: 'DeliveryDate',
-								type: 'sap.ui.model.type.Date',
-								formatOptions: {source: {pattern: 'timestamp'}}
-							}"/>
-						</template>
-					</Column>
-				</columns>
-			</Table>
-		</m:content>
-	</m:Page>
-</mvc:View>
+        controllerName="myView.Template"
+        xmlns="sap.ui.table"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:u="sap.ui.unified"
+        xmlns:c="sap.ui.core"
+        xmlns:m="sap.m">
+        <m:Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
+            <content>
+                <Table id="table1"
+                    rows="{/SelectionList}"
+                    selectionMode="MultiToggle"
+                    visibleRowCount="7"
+                    ariaLabelledBy="title">
+                    <extension>
+                        <m:OverflowToolbar>
+                            <m:ToolbarSpacer/>
+                            <m:Button
+                                icon="sap-icon://add"
+                                press="onAddRow"/>
+                            <m:Button
+                                icon="sap-icon://delete"
+                                press="onDeleteRow"/>
+                        </m:OverflowToolbar>
+                    </extension>
+                    <columns>
+                        <Column width="10rem">
+                            <m:Label text="ID"/>
+                            <template>
+                                <m:Input value="{id}"/>
+                            </template>
+                        </Column>
+                        <Column width="10rem">
+                            <m:Label text="Text(Optional)"/>
+                            <template>
+                                <m:Input value="{text}"/>
+                            </template>
+                        </Column>
+                        <Column width="10rem">
+                            <m:Label text="Default"/>
+                            <template>
+                                <m:RadioButton selected="{selected}"/>
+                            </template>
+                        </Column>
+                    </columns>
+                </Table>
+            </content>
+        </Panel>
+    </mvc:View>
 
 </script>
 	`;
