@@ -23,7 +23,8 @@
         <content>
         <Table id="idProductsTable"
 		inset="false"
-		items="{/SelectionList}">
+        items="{/SelectionList}"
+        fixedLayout="false">
 		<headerToolbar>
 			<OverflowToolbar>
                 <content>
@@ -38,13 +39,13 @@
 			</OverflowToolbar>
 		</headerToolbar>
 		<columns>
-			<Column width="10em">
+			<Column>
 				<Text text="ID" />
 			</Column>
-			<Column width="10em">
+			<Column>
 				<Text text="Text(Optional)" />
 			</Column>
-			<Column width="10em">
+			<Column>
 				<Text text="Default" />
 			</Column>
 		</columns>
@@ -166,7 +167,15 @@ function buildTable(that) {
                 },
 
                 onDeleteRow: function(oEvent) {
-
+                    var deleteRecord = oEvent.getSource().getBindingContext().getObject();
+		            for(var i=0;i<this._data.SelectionList.length;i++) {
+			            if(this._data.SelectionList[i] == deleteRecord ) {
+					//	pop this._data.Products[i] 
+						this._data.SelectionList.splice(i,1); //removing 1 record from i th index.
+						this.jModel.refresh();
+						break;//quit the loop
+					    }
+		            }
                 }
 
             });
