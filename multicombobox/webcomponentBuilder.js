@@ -141,7 +141,7 @@ function buildTable(that) {
 
                 onInit: function() {
 
-                    var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": "true"}]});
+                    var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": true}]});
                     this.getView().setModel(oModel);
                     sap.ui.getCore().setModel(oModel);
 
