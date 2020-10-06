@@ -15,7 +15,7 @@
    
     <script id="oView" name="oView" type="sapui5/xmlview">
     <mvc:View
-	controllerName="sap.m.sample.Table.Table"
+	controllerName="myView.Template"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m">
