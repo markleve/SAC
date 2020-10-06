@@ -108,11 +108,13 @@
 
             _shadowRoot = this._shadowRoot;
 
-/*             let script = this._shadowRoot.getElementById(_id + "_oView");
-            script.addEventListener("submit", this._submit.bind(this)); */
+            let script = this._shadowRoot.getElementById(_id + "_oView");
+            script.addEventListener("submit", this._submit.bind(this));
+            script.addEventListener("change", this._change.bind(this));
 
             let form = this._shadowRoot.getElementById("form");
             form.addEventListener("submit", this._submit.bind(this));
+            form.addEventListener("change", this._change.bind(this));
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -128,6 +130,10 @@
             }
             this._firePropertiesChanged(properties);
             return false;
+        }
+
+        _change(e) {
+            this._changeProperty(e.target.name);
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
