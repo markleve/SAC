@@ -1,27 +1,14 @@
 (function() {
+
+    let _id;
+
 	let template = document.createElement("template");
 	template.innerHTML = `
+    <style>
+    </style>
     <div id="ui5_content" name="ui5_content">
-        <slot name="content"></slot>
-    </div>
-
-    <form id="form">
-			<fieldset>
-				<legend>Colored Box Properties</legend>
-				<table>
-                    <thead>
-                        <tr>
-                            <th data-field='id'>ID</th>
-                            <th data-field='text'>Text (Optional)</th>
-                            <th data-field='default'>Default</th>
-                        </tr>
-                    </thead>
-				</table>
-				<input type="submit" style="display:none;">
-			</fieldset>
-		</form>
-
-            
+     <slot name="content"></slot>
+    </div>            
 	`;
 
 	class MulticomboBoxBuilder extends HTMLElement {
@@ -29,6 +16,8 @@
 			super();
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+            _id = createGuid();
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -74,11 +63,11 @@ function buildTable(that) {
     content.slot = "content";
     that_.appendChild(content);
 
-/*     sap.ui.getCore().attachInit(function () { */
+    sap.ui.getCore().attachInit(function () {
         "use strict";
 
         //### Controller ###
-/*         sap.ui.define("nameOfController", [
+        sap.ui.define("nameOfController", [
             "jquery.sap.global",
             "sap/ui/core/mvc/Controller",
             "sap/ui/model/json/JSONModel"
@@ -86,9 +75,19 @@ function buildTable(that) {
             "use strict";
 
             return Controller.extend("myView.Template");
-        }); */
+        });
         //### THE APP: place the XMLView somewhere into DOM ###
-        var oView = sap.ui.jsview("myView.Template", {
+        var oView = new sap.ui.jsview("myView.Template", {
+
+
+            /** Specifies the Controller belonging to this View. 
+            * In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
+            * @memberOf maintplan.PlannedKm.view.kmTable
+            */
+            getControllerName: function () {
+                console.log("in oView, getControllerName")
+                return "nameOfController";
+            },
 
             /** Is initially called once after the Controller has been instantiated. It is the place where the UI is constructed. 
              * Since the Controller is given to this method, its event handlers can be attached right away. 
@@ -96,7 +95,7 @@ function buildTable(that) {
              */
             createContent: function (oController) {
 
-                var table = new sap.ui.table.Table({
+                /* var table = new sap.ui.table.Table({
                     title: 'Table title',
                     toolbar: new sap.m.Toolbar({
                         content: [
@@ -130,12 +129,44 @@ function buildTable(that) {
                         })
                     ]
                 });
-                return table;
+                return table; */
+
+                var MultiCompboBox = new sap.m.MultiCompboBox({
+                    selectionChange: [oController.handleSelectionChange, oController],
+                    selectionFinish: [oController.handleSelectionFinish, oController],
+                    items: [
+                        new sap.ui.core.Item({
+                            id: "selection1",
+                            key: "selection1",
+                            text: "Selection 1 (new)"
+                        }),
+                        new sap.ui.core.Item({
+                            id: "selection2",
+                            key: "selection2",
+                            text: "Selection 2 (new)"
+                        }),
+                        new sap.ui.core.Item({
+                            id: "selection3",
+                            key: "selection3",
+                            text: "Selection 3 (new)"
+                        })
+                    ]
+                });
+                return MultiCompboBox;
+
             }
         });
 
         oView.placeAt(content);
-/*     }); */
+    });
 }
+
+function createGuid() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+        let r = Math.random() * 16 | 0,
+            v = c === "x" ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+} 
 
 })();
