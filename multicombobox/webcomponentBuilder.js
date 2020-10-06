@@ -21,44 +21,43 @@
     xmlns="sap.m">
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
-        <Table id="idProductsTable"
-		inset="false"
-        items="{/SelectionList}"
-        fixedLayout="false">
-		<headerToolbar>
-			<OverflowToolbar>
-                <content>
-                    <ToolbarSpacer/>
-					<ToggleButton id="addRow"
-                        icon="sap-icon://add"
-                        press="onAddRow" />
-                    <ToggleButton id="deleteRow"
-                        icon="sap-icon://delete"
-                        press="onDeleteRow" />                   
-				</content>
-			</OverflowToolbar>
-		</headerToolbar>
-		<columns>
-			<Column>
-				<Text text="ID" />
-			</Column>
-			<Column>
-				<Text text="Text(Optional)" />
-			</Column>
-			<Column>
-				<Text text="Default" />
-			</Column>
-		</columns>
-		<items>
-			<ColumnListItem>
-                <cells>
-                <Input value="{id}"/>
-                <Input value="{text}"/>
-                <RadioButton selected="{selected}" />
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+        <Table id="table1"
+				rows="{/SelectionList}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar>
+						<m:ToolbarSpacer/>
+						<m:Button
+							icon="sap-icon://add"
+							press="onAddRow"/>
+						<m:Button
+							icon="sap-icon://delete"
+							press="onDeleteRow"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="10rem">
+						<m:Label text="ID" />
+						<template>
+							<m:Input value="{id}"/>
+						</template>
+                    </Column>
+                    <Column width="10rem">
+						<m:Label text="Text(Optional)" />
+						<template>
+							<m:Input value="{text}"/>
+						</template>
+                    </Column>
+                    <Column width="10rem">
+						<m:Label text="Default" />
+						<template>
+                            <RadioButton selected="{selected}" />
+						</template>
+					</Column>
+				</columns>
+			</Table>
 		</content>
 	</Panel>
 </mvc:View>
