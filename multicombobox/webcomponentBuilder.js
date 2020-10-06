@@ -16,11 +16,11 @@
     <script id="oView" name="oView" type="sapui5/xmlview">
     <mvc:View
 	controllerName="myView.Template"
-    xmlns="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core"
-	xmlns:m="sap.m">
+    xmlns:m="sap.m"
+    xmlns:table="sap.ui.table">
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
             <Table id="table1"
