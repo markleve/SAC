@@ -23,12 +23,7 @@
         <content>
         <Table id="idProductsTable"
 		inset="false"
-		items="{
-			path: '/ProductCollection',
-			sorter: {
-				path: 'Name'
-			}
-		}">
+		items="{ '/SelectionList' }">
 		<headerToolbar>
 			<OverflowToolbar>
                 <content>
@@ -55,31 +50,10 @@
 		</columns>
 		<items>
 			<ColumnListItem>
-				<cells>
-					<ObjectIdentifier
-						title="{Name}"
-						text="{ProductId}"/>
-					<Text
-						text="{SupplierName}" />
-					<Text
-						text="{Width} x {Depth} x {Height} {DimUnit}" />
-					<ObjectNumber
-						number="{WeightMeasure}"
-						unit="{WeightUnit}"
-						state="{
-							parts: [
-								{path: 'WeightMeasure'},
-								{path: 'WeightUnit'}
-							],
-							formatter: 'sap.m.sample.Table.Formatter.weightState'
-						}" />
-					<ObjectNumber
-							number="{
-								parts:[{path:'Price'},{path:'CurrencyCode'}],
-								type: 'sap.ui.model.type.Currency',
-								formatOptions: {showMeasure: false}
-							}"
-							unit="{CurrencyCode}" />
+                <cells>
+                <Input value="{id}"/>
+                <Input value="{text}"/>
+                <RadioButton selected="{selected}" />
 				</cells>
 			</ColumnListItem>
 		</items>
@@ -163,69 +137,28 @@ function buildTable(that) {
         ], function (jQuery, Controller, JSONModel) {
             "use strict";
 
-            return Controller.extend("myView.Template");
+            return Controller.extend("myView.Template", {
+
+                onInit: function() {
+
+                    var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": "true"}]});
+                    this.getView().setModel(oModel);
+                    sap.ui.getCore().setModel(oModel);
+
+                },
+
+                onAddRow: function(oEvent) {
+
+                },
+
+                onDeleteRow: function(oEvent) {
+
+                }
+
+            });
         });
+
         //### THE APP: place the XMLView somewhere into DOM ###
-/*         var oView = new sap.ui.jsview("myView.Template", { */
-
-
-            /** Specifies the Controller belonging to this View. 
-            * In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
-            * @memberOf maintplan.PlannedKm.view.kmTable
-            */
-             /* getControllerName: function () {
-                console.log("in oView, getControllerName")
-                return "nameOfController";
-            }, */
- 
-            /** Is initially called once after the Controller has been instantiated. It is the place where the UI is constructed. 
-             * Since the Controller is given to this method, its event handlers can be attached right away. 
-             * @memberOf maintplan.PlannedKm.view.kmTable
-             */
-             /* createContent: function (oController) { 
-
-                  var table = new sap.ui.table.Table({
-                    title: 'Table title',
-                    toolbar: new sap.m.Toolbar({
-                        content: [
-                            new sap.m.Button({
-                                icon: "sap-icon://add",
-                                press: function() {
-                                    sap.m.MessageToast.show("Pressed add");
-                                }
-                        
-                            }),
-                            new sap.m.Button({
-                                icon: "sap-icon://delete",
-                                press: function() {
-                                    sap.m.MessageToast.show("Pressed delete");
-                                }
-                            })
-                        ]
-                    }),
-                    columns: [
-                        new sap.ui.table.Column({
-                            label: new sap.m.Label({text: "ID"}),
-                            template: new sap.m.Input({ value: "AA" })
-                        }),
-                        new sap.ui.table.Column({
-                            label: new sap.m.Label({text: "Text(Optional)"}),
-                            template: new sap.m.Input({ value: "BB" })
-                        }),
-                        new sap.ui.table.Column({
-                            label: new sap.m.Label({text: "Default"}),
-                            template: new sap.m.RadioButton({ selected: "{checked}" })
-                        })
-                    ]
-                });
-                return table;  
-
-
-             }  */
-/*         }); */
-
-/*         oView.placeAt(content);  */
-
         var oView  = sap.ui.xmlview({
             viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
         });
