@@ -157,8 +157,7 @@ function buildTable(that) {
 
                 onBeforeRendering: function() {
                     this.getView().setModel(this.jModel);
-                    sap.ui.getCore().setModel(this.jModel);
-/*                     this.byId('ins').setModel(this.jModel); */	
+                    sap.ui.getCore().setModel(this.jModel);	
                 },
 
                 onAddRow: function(oEvent) {
@@ -167,21 +166,16 @@ function buildTable(that) {
                 },
 
                 onPress: function(oEvent) {
-                    var bSelected = oEvent.getParameter("selected");
+                    this.selectedRow = oEvent.getSource().indexOfItem(
+                        oEvent.getParameters().listItem);
                 },
 
                 onDeleteRow: function(oEvent) {
-                    var deleteRecord = oEvent.getSource().getBindingContext().getObject();
-		            for(var i=0;i<this._data.SelectionList.length;i++) {
-			            if(this._data.SelectionList[i] == deleteRecord ) {
-					//	pop this._data.Products[i] 
-						this._data.SelectionList.splice(i,1); //removing 1 record from i th index.
-						this.jModel.refresh();
-						break;//quit the loop
-					    }
-		            }
+                    if (this.selectedRow !== undefined) {
+                        this._data.SelectionList.splice(this.selectedRow,1);
+                        this.jModel.refresh();
+                    }
                 }
-
             });
         });
 
