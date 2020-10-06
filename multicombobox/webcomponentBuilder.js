@@ -37,13 +37,13 @@
 			</OverflowToolbar>
 		</headerToolbar>
 		<columns>
-			<Column width="10em">
+			<Column>
 				<Text text="ID" />
 			</Column>
-			<Column width="10em">
+			<Column>
 				<Text text="Text(Optional)" />
 			</Column>
-			<Column width="10em">
+			<Column>
 				<Text text="Default" />
 			</Column>
 		</columns>
