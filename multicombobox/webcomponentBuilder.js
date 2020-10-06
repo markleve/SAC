@@ -15,48 +15,52 @@
    
     <script id="oView" name="oView" type="sapui5/xmlview">
     <mvc:View
-	controllerName="myView.Template"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-    xmlns="sap.m">
-    <Table id="idProductsTable"
-            inset="false"
-            items="{/SelectionList}"
-            fixedLayout="false">
-            <headerToolbar>
-                <OverflowToolbar>
-                    <content>
-                        <ToolbarSpacer/>
-                        <ToggleButton id="addRow"
-                            icon="sap-icon://add"
-                            press="onAddRow" />
-                        <ToggleButton id="deleteRow"
-                            icon="sap-icon://delete"
-                            press="onDeleteRow" />                   
-                    </content>
-                </OverflowToolbar>
-            </headerToolbar>
-            <columns>
-                <Column>
-                    <Text text="ID" />
-                </Column>
-                <Column>
-                    <Text text="Text(Optional)" />
-                </Column>
-                <Column>
-                    <Text text="Default" />
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem>
-                    <cells>
-                    <Input value="{id}"/>
-                    <Input value="{text}"/>
-                    <RadioButton selected="{selected}" />
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+	    controllerName="myView.Template"
+	    xmlns:mvc="sap.ui.core.mvc"
+	    xmlns:core="sap.ui.core"
+        xmlns="sap.m">
+        <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
+            <content>
+                <Table id="idProductsTable"
+                    inset="false"
+                    items="{/SelectionList}"
+                    fixedLayout="false">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <ToolbarSpacer/>
+                                <ToggleButton id="addRow"
+                                    icon="sap-icon://add"
+                                    press="onAddRow" />
+                                <ToggleButton id="deleteRow"
+                                    icon="sap-icon://delete"
+                                    press="onDeleteRow" />                   
+                             </content>
+                        </OverflowToolbar>
+                     </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Text(Optional)" />
+                        </Column>
+                        <Column>
+                            <Text text="Default" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                            <Input value="{id}"/>
+                            <Input value="{text}"/>
+                            <RadioButton selected="{selected}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Panel>
     </mvc:View>
 </script>
 	`;
