@@ -27,22 +27,38 @@
 				ariaLabelledBy="title"
 				selectionMode="MultiToggle"
 				rows="{/SelectionList}"
-				visibleRowCount="5"
 				enableColumnFreeze="true"
 				showColumnVisibilityMenu="true">
 				<extension>
-					<m:OverflowToolbar>
-						<m:Title id="title" text="Contacts"/>
-					</m:OverflowToolbar>
+                <m:OverflowToolbar>
+                                        <m:ToolbarSpacer/>
+                                        <m:Button
+                                            icon="sap-icon://add"
+                                            press="onAddRow"/>
+                                        <m:Button
+                                            icon="sap-icon://delete"
+                                            press="onDeleteRow"/>
+                                    </m:OverflowToolbar>
 				</extension>
 				<columns>
-					<Column
-						width="11rem">
-						<m:Label text="ID" textAlign="Center" width="100%"/>
-						<template>
-                            <m:Input value="{id}"/>
-						</template>
-					</Column>
+                <Column width="10rem">
+                                        <m:Label text="ID"/>
+                                        <template>
+                                            <m:Input value="{id}"/>
+                                        </template>
+                                    </Column>
+                                    <Column width="10rem">
+                                        <m:Label text="Text(Optional)"/>
+                                        <template>
+                                            <m:Input value="{text}"/>
+                                        </template>
+                                    </Column>
+                                    <Column width="10rem">
+                                        <m:Label text="Default"/>
+                                        <template>
+                                            <m:RadioButton selected="{selected}"/>
+                                        </template>
+                                    </Column>
 				</columns>
 			</Table>
 </mvc:View>
