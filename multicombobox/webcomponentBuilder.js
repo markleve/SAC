@@ -23,7 +23,7 @@
         <content>
         <Table id="idProductsTable"
 		inset="false"
-		items="{ '/SelectionList' }">
+		items="{/SelectionList}">
 		<headerToolbar>
 			<OverflowToolbar>
                 <content>
