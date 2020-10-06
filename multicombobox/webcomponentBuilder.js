@@ -14,7 +14,8 @@
    
     <script id="oView" name="oView" type="sapui5/xmlview">
     <mvc:View
-	controllerName="myView.Template"
+    controllerName="myView.Template"
+    class="sapUiSizeCompact"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
     xmlns="sap.m">
