@@ -80,7 +80,7 @@
 
             _shadowRoot = this._shadowRoot;
 
-            let script = this._shadowRoot.getElementById("script");
+            let script = this._shadowRoot.getElementById(_id + "_oView");
             script.addEventListener("submit", this._submit.bind(this));
 		}
 
