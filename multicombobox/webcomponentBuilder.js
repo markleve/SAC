@@ -62,6 +62,7 @@
 		</content>
 	</Panel>
 </mvc:View>
+<button type="submit" hidden>Submit</button>
 </script>
 	`;
 
@@ -79,15 +80,23 @@
 
             _shadowRoot = this._shadowRoot;
 
-            this.addEventListener("onAddRow", event => {
-				var event = new Event("onSelectionChange");
-				/* this.dispatchEvent(event); */
-            });
+            let script = this._shadowRoot.getElementById("script");
+            script.addEventListener("submit", this._submit.bind(this));
 		}
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
             this.redraw();
+        }
+
+        _submit(e) {
+            e.preventDefault();
+            let properties = {};
+            for (let name of MultiInputAps.observedAttributes) {
+                properties[name] = this[name];
+            }
+            this._firePropertiesChanged(properties);
+            return false;
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
