@@ -63,6 +63,35 @@
 	</Panel>
 </mvc:View>
 </script>
+
+<form id="form" autocomplete="off">
+<fieldset> 
+  <legend>General</legend>
+  <table>
+    <tr>
+      <td><label for="Title">Title</label></td>
+      <td><input id="title" name="title" type="text"></td>
+    </tr>
+    <tr>
+      <td><label for="Sub Title">Sub Title</label></td>
+      <td><input id="subtitle" name="subtitle" type="text"></td>
+    </tr>
+    <tr>
+      <td><label for="Icon">Icon</label></td>
+      <td><input id="icon" name="icon" type="text"></td>
+    </tr>
+    <tr>
+      <td><label for="Unit">Unit</label></td>
+      <td><input id="unit" name="unit" type="text"></td>
+    </tr>
+    <tr>
+      <td><label for="Footer">Footer</label></td>
+      <td><input id="footer" name="footer" type="text"></td>
+    </tr>
+  </table>
+</fieldset>
+<button type="submit" hidden>Submit</button>
+</form>
 	`;
 
 	class MulticomboBoxBuilder extends HTMLElement {
@@ -79,8 +108,11 @@
 
             _shadowRoot = this._shadowRoot;
 
-            let script = this._shadowRoot.getElementById(_id + "_oView");
-            script.addEventListener("submit", this._submit.bind(this));
+/*             let script = this._shadowRoot.getElementById(_id + "_oView");
+            script.addEventListener("submit", this._submit.bind(this)); */
+
+            let form = this._shadowRoot.getElementById("form");
+            form.addEventListener("submit", this._submit.bind(this));
 		}
 
         //Fired when the widget is added to the html DOM of the page
