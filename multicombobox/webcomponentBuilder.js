@@ -16,14 +16,16 @@
     <script id="oView" name="oView" type="sapui5/xmlview">
     <mvc:View
 	controllerName="myView.Template"
+    xmlns="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-    xmlns="sap.m">
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m">
     <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
         <content>
-        <Table id="table1"
-				rows="{/SelectionList}"
-				selectionMode="MultiToggle"
+            <Table id="table1"
+			    rows="{/SelectionList}"
+			    selectionMode="MultiToggle"
 				visibleRowCount="7"
 				ariaLabelledBy="title">
 				<extension>
