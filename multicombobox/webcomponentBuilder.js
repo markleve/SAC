@@ -18,8 +18,10 @@
 	controllerName="myView.Template"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
-	xmlns="sap.m">
-	<Table id="idProductsTable"
+    xmlns="sap.m">
+    <Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
+        <content>
+        <Table id="idProductsTable"
 		inset="false"
 		items="{
 			path: '/ProductCollection',
@@ -29,64 +31,26 @@
 		}">
 		<headerToolbar>
 			<OverflowToolbar>
-				<content>
-					<Title text="Products" level="H2"/>
-					<ToolbarSpacer />
-					<ComboBox id="idPopinLayout"
-						placeholder="Popin layout options"
-						change="onPopinLayoutChanged">
-						<items>
-							<core:Item  text="Block"
-								key="Block"/>
-							<core:Item  text="Grid Large"
-								key="GridLarge"/>
-							<core:Item  text="Grid Small"
-								key="GridSmall"/>
-						</items>
-					</ComboBox>
-					<Label text="Sticky options:" />
-					<CheckBox text="ColumnHeaders"
-						select="onSelect"/>
-					<CheckBox text="HeaderToolbar"
-						select="onSelect"/>
-					<CheckBox text="InfoToolbar"
-						select="onSelect"/>
-					<ToggleButton id="toggleInfoToolbar"
-						text="Hide/Show InfoToolbar"
-						press="onToggleInfoToolbar" />
+                <content>
+                    <ToolbarSpacer/>
+					<ToggleButton id="addRow"
+                        icon="sap-icon://add"
+                        press="onAddRow" />
+                    <ToggleButton id="deleteRow"
+                        icon="sap-icon://delete"
+                        press="onDeleteRow" />                   
 				</content>
 			</OverflowToolbar>
 		</headerToolbar>
-		<infoToolbar>
-			<OverflowToolbar>
-				<Label text="Wide range of available products"/>
-			</OverflowToolbar>
-		</infoToolbar>
 		<columns>
-			<Column
-				width="12em">
-				<Text text="Product" />
+			<Column width="10em">
+				<Text text="ID" />
 			</Column>
-			<Column
-				minScreenWidth="Tablet"
-				demandPopin="true">
-				<Text text="Supplier" />
+			<Column width="10em">
+				<Text text="Text(Optional)" />
 			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
-				hAlign="End">
-				<Text text="Dimensions" />
-			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
-				hAlign="Center">
-				<Text text="Weight" />
-			</Column>
-			<Column
-				hAlign="End">
-				<Text text="Price" />
+			<Column width="10em">
+				<Text text="Default" />
 			</Column>
 		</columns>
 		<items>
@@ -120,6 +84,8 @@
 			</ColumnListItem>
 		</items>
 	</Table>
+		</content>
+	</Panel>
 </mvc:View>
 </script>
 	`;
@@ -137,6 +103,11 @@
 
 
             _shadowRoot = this._shadowRoot;
+
+            this.addEventListener("onAddRow", event => {
+				var event = new Event("onSelectionChange");
+				/* this.dispatchEvent(event); */
+            });
 		}
 
         //Fired when the widget is added to the html DOM of the page
