@@ -1,6 +1,7 @@
 (function() {
 
     let _id;
+    let _shadowRoot;
 
 	let template = document.createElement("template");
     template.innerHTML = `
@@ -128,8 +129,10 @@
 			super();
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(template.content.cloneNode(true));
+            this._shadowRoot.querySelector("#oView").id = this._id + "_oView";
 
             _id = createGuid();
+            _shadowRoot = this._shadowRoot;
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -149,8 +152,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            var that = this;
-            buildTable(that);
+            buildTable(this);
 
         }
         
@@ -179,7 +181,7 @@ function buildTable(that) {
         "use strict";
 
         //### Controller ###
-        sap.ui.define("nameOfController", [
+        sap.ui.define([
             "jquery.sap.global",
             "sap/ui/core/mvc/Controller",
             "sap/ui/model/json/JSONModel"
@@ -248,6 +250,13 @@ function buildTable(that) {
 /*         }); */
 
 /*         oView.placeAt(content);  */
+
+        var oView  = sap.ui.xmlview({
+            viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
+        });
+
+        oView.placeAt(content);
+
      });  
 }
 
