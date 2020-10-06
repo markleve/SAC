@@ -53,12 +53,6 @@
                                             <m:Input value="{text}"/>
                                         </template>
                                     </Column>
-                                    <Column width="10rem">
-                                        <m:Label text="Default"/>
-                                        <template>
-                                            <m:RadioButton selected="{selected}"/>
-                                        </template>
-                                    </Column>
 				</columns>
 			</Table>
 </mvc:View>
