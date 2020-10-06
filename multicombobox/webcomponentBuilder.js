@@ -23,7 +23,7 @@
         xmlns:c="sap.ui.core"
         xmlns:m="sap.m">
         <m:Panel expandable="true" headerText="Multicombo select values" width="auto" class="sapUiResponsiveMargin">
-            <content>
+            <m:content>
                 <Table id="table1"
                     rows="{/SelectionList}"
                     selectionMode="MultiToggle"
@@ -61,8 +61,8 @@
                         </Column>
                     </columns>
                 </Table>
-            </content>
-        </Panel>
+            </m:content>
+        </m:Panel>
     </mvc:View>
 
 </script>
