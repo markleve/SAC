@@ -129,7 +129,9 @@
         }
 
         set addedRows(value) {
-            this._viewModel.setProperty("/SelectionList", value);
+            if(this._viewModel !== undefined) {
+                this._viewModel.setProperty("/SelectionList", value);
+            }
         }
 
 	}
