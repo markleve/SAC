@@ -71,6 +71,10 @@
             if("multicomboboxRows" in oChangedProperties) {
                 if(this._viewModel !== undefined) {
                     this._viewModel.setProperty("/SelectionList", JSON.parse(oChangedProperties["multicomboboxRows"]));
+                } else {
+                    var model = new sap.ui.model.json.JSONModel();
+                    model.setProperty("/SelectionList", JSON.parse(oChangedProperties["multicomboboxRows"]));
+                    this._viewModel = model;        
                 }
             }
 		}
@@ -193,14 +197,19 @@
                          this.getView().setModel(oModel);
                         sap.ui.getCore().setModel(oModel); */
 
-                        if(that_._multicomboboxRows !== undefined) {
+/*                         if(that_._multicomboboxRows !== undefined) {
                             var model = new sap.ui.model.json.JSONModel();
                             model.setProperty("/SelectionList",that_._multicomboboxRows);
                             this.getView().setModel(model);
                             sap.ui.getCore().setModel(model);
+                        } */
+
+                        if(that._viewModel !== undefined) {
+                            this.getView().setModel(that._viewModel);
+                            sap.ui.getCore().setModel(that._viewModel);
                         }
 
-                        that._viewModel = this.getView().getModel();
+/*                         that._viewModel = this.getView().getModel(); */
                     },
         
                     handleSelectionChange: function(oEvent) {
