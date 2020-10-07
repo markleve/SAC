@@ -19,8 +19,6 @@
 	            xmlns:core="sap.ui.core"
 	            xmlns:mvc="sap.ui.core.mvc"
 	            xmlns="sap.m">
-	            <l:VerticalLayout
-		            class="sapUiContentPadding">
 		            <MultiComboBox
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
@@ -28,7 +26,6 @@
 			            items="{/SelectionList}">
 			            <core:Item key="{id}" text="{text}"/>
 		            </MultiComboBox>
-	            </l:VerticalLayout>
             </mvc:View>
         </script> 
     `;
