@@ -14,17 +14,18 @@
         <script id="oView" name="oView" type="sapui5/xmlview">
             <mvc:View
 	            height="100%"
-	            controllerName="myView.Template"
+                controllerName="myView.Template"
+                class="sapUiSizeCompact"
 	            xmlns:l="sap.ui.layout"
 	            xmlns:core="sap.ui.core"
 	            xmlns:mvc="sap.ui.core.mvc"
-	            xmlns="sap.m">
+                xmlns="sap.m">
 		            <MultiComboBox
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
 			            items="{/SelectionList}">
 			            <core:Item key="{id}" text="{text}"/>
-		            </MultiComboBox>
+                    </MultiComboBox>
             </mvc:View>
         </script> 
     `;
