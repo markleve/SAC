@@ -6,12 +6,7 @@
     tmpl.innerHTML = `
         <style>
 
-        myStyle .sapMInputBaseContentWrapper {
-            border: 1px solid #0083A3;
-            background: #ffffff;
-        }
-
-        .sapMInputBaseContentWrapper.myStyle {
+        myStyle{
             border: 1px solid #0083A3;
             background: #ffffff;
         }
@@ -34,8 +29,7 @@
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
                         items="{/SelectionList}"
-                        placeholder="Søk på varenavn, varenummer eller EAN"
-                        class="myStyle">
+                        placeholder="Søk på varenavn, varenummer eller EAN">
 			            <core:Item key="{id}" text="{text}"/>
                     </MultiComboBox>
             </mvc:View>
