@@ -5,9 +5,11 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
-        .sapMInputBaseContentWrapper {
-            border: 1px solid #0083A3;
-            background: #ffffff;
+        :host {
+            border-color: #0083A3;
+            border-style: solid;
+            border-width: 1px;
+
         }
         </style>
 
