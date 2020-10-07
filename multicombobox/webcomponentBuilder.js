@@ -81,6 +81,7 @@
 
 
             _shadowRoot = this._shadowRoot;
+            this._viewModel;
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -91,7 +92,9 @@
         _changeProperty(property) {
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
                 detail: {
-                    haha: property
+                    properties: {
+                        addedRows: property
+                    }
                 }
             }));
         }
@@ -118,6 +121,14 @@
         }
 
         redraw() {
+
+        }
+
+        get addedRows() {
+            return this._viewModel.getProperty("/SelectionList");
+        }
+
+        set addedRows(value) {
 
         }
 
@@ -164,6 +175,8 @@ function buildTable(that) {
                 onBeforeRendering: function() {
                     this.getView().setModel(this.jModel);
                     sap.ui.getCore().setModel(this.jModel);	
+
+                    that._viewModel = this.getView().getModel();
                 },
 
                 onAddRow: function(oEvent) {
@@ -184,7 +197,9 @@ function buildTable(that) {
                 },
 
                 onApply: function(oEvent) {
-                    that_._changeProperty("value");
+                    //loop at all values and send one by one
+                    var model = this.getView().getModel().getProperty("/SelectionList");
+                    that_._changeProperty(JSON.stringify(model));
 
                 }
             });

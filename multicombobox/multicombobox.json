@@ -40,9 +40,9 @@
 			"type": "string[]",
 			"description": "The keys of the selected items"
 		},
-		"haha": {
+		"addedRows": {
 			"type": "string",
-			"description": "Test"
+			"description": "Stringified version of rows to be added"
 		}
 	},
 	"methods": {

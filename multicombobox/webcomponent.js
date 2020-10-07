@@ -131,13 +131,15 @@
             this._selectedItemKey = value;
         }
 
-        get haha() {
-            return this._haha;
+        get addedRows() {
+            return this._addedRows;
 
         }
 
-        set haha(value) {
-            this._haha = value;
+        set addedRows(value) {
+            this._addedRows = value;
+            var model = value.parse();
+            this._viewModel.setProperty("/SelectionList", model);
         }
         
         setSelectedKeys(oChangedProperties) {
