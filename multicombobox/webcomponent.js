@@ -210,6 +210,10 @@
                             sap.ui.getCore().setModel(that._viewModel);
                         }
                     },
+
+                    onAfterRendering: function() {
+                        this.addClass("myStyle");
+                    },
         
                     handleSelectionChange: function(oEvent) {
                         that._multicombobox = oEvent.getSource();
