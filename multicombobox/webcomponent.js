@@ -22,7 +22,6 @@
 		            <MultiComboBox
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
-			            width="350px"
 			            items="{/SelectionList}">
 			            <core:Item key="{id}" text="{text}"/>
 		            </MultiComboBox>
