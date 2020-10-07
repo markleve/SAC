@@ -49,14 +49,7 @@
 
             _id = this._id;
             _shadowRoot = this._shadowRoot;
-
-            //Adding event handler for selection change
-/* 			this.addEventListener("selectionChange", event => {
-				var event = new Event("onSelectionChange");
-				this.dispatchEvent(event);
-            });
- */
-            
+                        
             this._viewModel;
             this._multicombobox;
 		}
