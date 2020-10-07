@@ -131,10 +131,10 @@
 
         set multicomboboxRows(value) {
             this._multicomboboxRows = JSON.parse(value);
-/*             var model = JSON.parse(value);
+
             if(this._viewModel !== undefined) {
-                this._viewModel.setProperty("/SelectionList", model);
-            } */
+                this._viewModel.setProperty("/SelectionList", JSON.parse(value));
+            }
         }
         
         setSelectedKeys(oChangedProperties) {
