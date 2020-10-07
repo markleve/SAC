@@ -81,7 +81,6 @@
 
 
             _shadowRoot = this._shadowRoot;
-/*             this._viewModel; */
 		}
 
         //Fired when the widget is added to the html DOM of the page

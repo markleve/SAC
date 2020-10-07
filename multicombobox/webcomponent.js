@@ -20,8 +20,7 @@
 	            xmlns:mvc="sap.ui.core.mvc"
 	            xmlns="sap.m">
 	            <l:VerticalLayout
-		            class="sapUiContentPadding"
-		            width="100%">
+		            class="sapUiContentPadding">
 		            <MultiComboBox
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
@@ -197,26 +196,14 @@
                          this.getView().setModel(oModel);
                         sap.ui.getCore().setModel(oModel); */
 
-/*                         if(that_._multicomboboxRows !== undefined) {
-                            var model = new sap.ui.model.json.JSONModel();
-                            model.setProperty("/SelectionList",that_._multicomboboxRows);
-                            this.getView().setModel(model);
-                            sap.ui.getCore().setModel(model);
-                        } */
-
                         if(that._viewModel !== undefined) {
                             this.getView().setModel(that._viewModel);
                             sap.ui.getCore().setModel(that._viewModel);
                         }
-
-/*                         that._viewModel = this.getView().getModel(); */
                     },
         
                     handleSelectionChange: function(oEvent) {
                         that._multicombobox = oEvent.getSource();
-/*                         if(that._new_keys.length > 0) {
-                            oEvent.getSource().setSelectedKeys(that._new_keys);
-                        } */
 
                         var selectedItems = oEvent.getSource().getSelectedItems();
 
