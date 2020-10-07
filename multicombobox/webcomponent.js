@@ -5,12 +5,7 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
-        :host {
-            border-color: #0083A3;
-            border-style: solid;
-            border-width: 1px;
 
-        }
 
         .myStyle.sapMInputBaseContentWrapper {
             border: 1px solid #0083A3;
@@ -34,7 +29,8 @@
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
                         items="{/SelectionList}"
-                        placeholder="Søk på varenavn, varenummer eller EAN">
+                        placeholder="Søk på varenavn, varenummer eller EAN"
+                        class="myStyle">
 			            <core:Item key="{id}" text="{text}"/>
                     </MultiComboBox>
             </mvc:View>
@@ -211,7 +207,7 @@
                     },
 
                     onAfterRendering: function() {
-                        this.addClass("myStyle");
+/*                         this.addClass("myStyle"); */
                     },
         
                     handleSelectionChange: function(oEvent) {
