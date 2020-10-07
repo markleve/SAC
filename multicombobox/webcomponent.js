@@ -22,7 +22,8 @@
 		            <MultiComboBox
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
-			            items="{/SelectionList}">
+                        items="{/SelectionList}"
+                        placeholder="Søk på varenavn, varenummer eller EAN">
 			            <core:Item key="{id}" text="{text}"/>
                     </MultiComboBox>
             </mvc:View>
