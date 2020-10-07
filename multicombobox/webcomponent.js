@@ -6,11 +6,11 @@
     tmpl.innerHTML = `
         <style>
 
-
-        .myStyle.sapMInputBaseContentWrapper {
+        .myStyle {
             border: 1px solid #0083A3;
             background: #ffffff;
         }
+
         </style>
 
         <div id="ui5_content" name="ui5_content">
@@ -212,6 +212,9 @@
                             this.getView().setModel(that._viewModel);
                             sap.ui.getCore().setModel(that._viewModel);
                         }
+
+                        //Add style
+                        this.getView().addStyleClass("myStyle");
                     },
 
                     onAfterRendering: function() {
