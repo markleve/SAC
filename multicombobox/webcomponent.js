@@ -147,25 +147,25 @@
         }
 
         removeAllItems() {
-            this._viewModel.setProperty("/ProductCollection", {});
+            this._viewModel.setProperty("/SelectionList", {});
         }
 
         removeItems(keys) {
-            var allItems = this._viewModel.getProperty("/ProductCollection");
+            var allItems = this._viewModel.getProperty("/SelectionList");
             keys.forEach(key => {
-                allItems.splice(allItems.findIndex(item => item.ProductId === key),1);
+                allItems.splice(allItems.findIndex(item => item.id === key),1);
             });
 
-            this._viewModel.setProperty("/ProductCollection", allItems);
+            this._viewModel.setProperty("/SelectionList", allItems);
         }
 
         addItems(keys, values) {
-            var allItems = this._viewModel.getProperty("/ProductCollection");
+            var allItems = this._viewModel.getProperty("/SelectionList");
             keys.forEach( (key, index) => {
-                allItems.push({ProductId: key, Name: values[index]});
+                allItems.push({id: key, text: values[index]});
             });
             
-            this._viewModel.setProperty("/ProductCollection", allItems);
+            this._viewModel.setProperty("/SelectionList", allItems);
             this._viewModel.refresh(true);
         }
     
@@ -194,34 +194,11 @@
         
                     onInit: function () {
                         // set explored app's demo model on this sample
-                        var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
-/*                         this.getView().setModel(oModel);
+/*                        var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
+                         this.getView().setModel(oModel);
                         sap.ui.getCore().setModel(oModel); */
 
                         that._viewModel = this.getView().getModel();
-
-/*                         let mockData = {
-                            "ProductCollection" : [
-                                {
-                                    "ProductId": "HT-1000",
-                                    "Category": "Laptops",
-                                    "MainCategory": "Computer Systems",
-                                    "TaxTarifCode": "1",
-                                    "SupplierName": "Very Best Screens",
-                                    "Name": "Computer 1"
-                                },
-                                {
-                                    "ProductId": "HT-1001",
-                                    "Category": "Laptops",
-                                    "MainCategory": "Computer Systems",
-                                    "TaxTarifCode": "1",
-                                    "SupplierName": "Very Best Screens",
-                                    "Name": "Computer 2"
-                                }]};
-
-                        var oModel = new JSONModel(mockData);
-                        //oModel.setData(mockData);
-                        this.getView().setModel(oModel); */
                     },
         
                     handleSelectionChange: function(oEvent) {

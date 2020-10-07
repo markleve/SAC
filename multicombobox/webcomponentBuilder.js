@@ -29,7 +29,7 @@
 			<OverflowToolbar>
                 <content>
                 <ToggleButton id="apply"
-                        text="Apply chnage"
+                        text="Apply change"
                         press="onApply" />
                     <ToolbarSpacer/>
 					<ToggleButton id="addRow"
@@ -129,7 +129,7 @@
         }
 
         set addedRows(value) {
-
+            this._viewModel.setProperty("/SelectionList", value);
         }
 
 	}
@@ -160,16 +160,13 @@ function buildTable(that) {
                 onInit: function() {
 
                     this._data = {
-                        SelectionList : [ 
-                                    { id : 'Clock' , text : '1X2X5', selected: true}]	
+                        SelectionList : [ ]
+                                   /*  { id : 'Clock' , text : '1X2X5', selected: true}] */	
                     };
                     
                     this.jModel = new sap.ui.model.json.JSONModel();
                     this.jModel.setData(this._data);
 
-/*                     var oModel = new JSONModel({"SelectionList":[ {"id": "haha", "text": "jaja", "selected": true}]});
-                    this.getView().setModel(oModel);
-                    sap.ui.getCore().setModel(oModel); */
                 },
 
                 onBeforeRendering: function() {
