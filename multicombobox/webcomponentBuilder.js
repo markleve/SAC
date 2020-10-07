@@ -161,8 +161,13 @@ function buildTable(that, changedProperties) {
                 onInit: function() {
 
                     if("multicomboboxRows" in changedProperties) {
+                        var rows = oChangedProperties["multicomboboxRows"];
+                        if(rows === undefined) {
+                            rows = "[]";
+                        }
+
                         this.jModel = new sap.ui.model.json.JSONModel();
-                        this.jModel.setProperty("/SelectionList",JSON.parse(changedProperties["multicomboboxRows"]));
+                        this.jModel.setProperty("/SelectionList",JSON.parse(rows));
                     } else {
                         this._data = { SelectionList : [ ]  };
                         this.jModel = new sap.ui.model.json.JSONModel();

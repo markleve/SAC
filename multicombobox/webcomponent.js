@@ -72,11 +72,16 @@
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
             if("multicomboboxRows" in oChangedProperties) {
+                var rows = oChangedProperties["multicomboboxRows"];
+                if(rows === undefined) {
+                    rows = "[]";
+                }
+
                 if(this._viewModel !== undefined) {
-                    this._viewModel.setProperty("/SelectionList", JSON.parse(oChangedProperties["multicomboboxRows"]));
+                    this._viewModel.setProperty("/SelectionList", JSON.parse(rows));
                 } else {
                     var model = new sap.ui.model.json.JSONModel();
-                    model.setProperty("/SelectionList", JSON.parse(oChangedProperties["multicomboboxRows"]));
+                    model.setProperty("/SelectionList", JSON.parse(rows));
                     this._viewModel = model;        
                 }
             }
