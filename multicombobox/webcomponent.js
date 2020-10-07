@@ -68,7 +68,11 @@
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
-
+            if("multicomboboxRows" in oChangedProperties) {
+                if(this._viewModel !== undefined) {
+                    this._viewModel.setProperty("/SelectionList", JSON.parse(oChangedProperties["multicomboboxRows"]));
+                }
+            }
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
@@ -131,10 +135,6 @@
 
         set multicomboboxRows(value) {
             this._multicomboboxRows = JSON.parse(value);
-
-            if(this._viewModel !== undefined) {
-                this._viewModel.setProperty("/SelectionList", JSON.parse(value));
-            }
         }
         
         setSelectedKeys(oChangedProperties) {

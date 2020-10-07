@@ -111,7 +111,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            buildTable(this);
+            buildTable(this, oChangedProperties);
 
         }
         
@@ -138,7 +138,7 @@
 
 customElements.define("com-sap-sample-multicombobox-builder", MulticomboBoxBuilder);
 
-function buildTable(that) {
+function buildTable(that, changedProperties) {
 
     var that_ = that;
 
@@ -160,6 +160,10 @@ function buildTable(that) {
             return Controller.extend("myView.Template", {
 
                 onInit: function() {
+
+                    if("multicomboboxRows" in changedProperties) {
+
+                    }
 
                     this._data = {
                         SelectionList : [ ]
