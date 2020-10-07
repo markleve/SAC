@@ -11,6 +11,11 @@
             border-width: 1px;
 
         }
+
+        .myStyle .sapMInputBaseContentWrapper {
+            border: 1px solid #0083A3;
+            background: #ffffff;
+        }
         </style>
 
         <div id="ui5_content" name="ui5_content">
@@ -29,7 +34,8 @@
 			            selectionChange="handleSelectionChange"
 			            selectionFinish="handleSelectionFinish"
                         items="{/SelectionList}"
-                        placeholder="Søk på varenavn, varenummer eller EAN">
+                        placeholder="Søk på varenavn, varenummer eller EAN"
+                        class="myStyle">
 			            <core:Item key="{id}" text="{text}"/>
                     </MultiComboBox>
             </mvc:View>
