@@ -138,8 +138,8 @@
 
         set addedRows(value) {
             this._addedRows = value;
-            var model = JSON.parse(value);
-            this._viewModel.setProperty("/SelectionList", model);
+/*             var model = JSON.parse(value);
+ */            this._viewModel.setProperty("/SelectionList", value);
         }
         
         setSelectedKeys(oChangedProperties) {
