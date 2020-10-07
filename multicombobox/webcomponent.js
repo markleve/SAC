@@ -5,6 +5,10 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
+        .sapMInputBaseContentWrapper {
+            border: 1px solid #0083A3;
+            background: #ffffff;
+        }
         </style>
 
         <div id="ui5_content" name="ui5_content">
