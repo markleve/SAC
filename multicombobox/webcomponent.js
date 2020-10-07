@@ -15,7 +15,6 @@
             <mvc:View
 	            height="100%"
                 controllerName="myView.Template"
-                class="sapUiSizeCompact"
 	            xmlns:l="sap.ui.layout"
 	            xmlns:core="sap.ui.core"
 	            xmlns:mvc="sap.ui.core.mvc"
