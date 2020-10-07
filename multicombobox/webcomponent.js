@@ -6,7 +6,12 @@
     tmpl.innerHTML = `
         <style>
 
-        .myStyle {
+        myStyle .sapMInputBaseContentWrapper {
+            border: 1px solid #0083A3;
+            background: #ffffff;
+        }
+
+        .sapMInputBaseContentWrapper.myStyle {
             border: 1px solid #0083A3;
             background: #ffffff;
         }
