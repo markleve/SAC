@@ -49,7 +49,7 @@
 
             _id = this._id;
             _shadowRoot = this._shadowRoot;
-                        
+
             this._viewModel;
             this._multicombobox;
 		}
@@ -124,17 +124,17 @@
             this._selectedItemKey = value;
         }
 
-        get addedRows() {
-            return this._addedRows;
+        get multicomboboxRows() {
+            return this._multicomboboxRows;
 
         }
 
-        set addedRows(value) {
-            this._addedRows = value;
-            var model = JSON.parse(value);
+        set multicomboboxRows(value) {
+            this._multicomboboxRows = JSON.parse(value);
+/*             var model = JSON.parse(value);
             if(this._viewModel !== undefined) {
                 this._viewModel.setProperty("/SelectionList", model);
-            }
+            } */
         }
         
         setSelectedKeys(oChangedProperties) {
@@ -192,6 +192,13 @@
 /*                        var oModel = new JSONModel("https://markleve.github.io/SAC/multicombobox/products.json");
                          this.getView().setModel(oModel);
                         sap.ui.getCore().setModel(oModel); */
+
+                        if(that_._multicomboboxRows !== undefined) {
+                            var model = new sap.ui.model.json.JSONModel();
+                            model.setProperty("/SelectionList",that_._multicomboboxRows);
+                            this.getView().setModel(model);
+                            sap.ui.getCore().setModel(model);
+                        }
 
                         that._viewModel = this.getView().getModel();
                     },

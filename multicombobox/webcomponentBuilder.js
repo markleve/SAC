@@ -93,7 +93,7 @@
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
                 detail: {
                     properties: {
-                        addedRows: property
+                        multicomboboxRows: property
                     }
                 }
             }));
@@ -124,11 +124,11 @@
 
         }
 
-        get addedRows() {
+        get multicomboboxRows() {
             return this._viewModel.getProperty("/SelectionList");
         }
 
-        set addedRows(value) {
+        set multicomboboxRows(value) {
             if(this._viewModel !== undefined) {
                 this._viewModel.setProperty("/SelectionList", value);
             }

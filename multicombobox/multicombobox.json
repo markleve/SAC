@@ -40,7 +40,7 @@
 			"type": "string[]",
 			"description": "The keys of the selected items"
 		},
-		"addedRows": {
+		"multicomboboxRows": {
 			"type": "string",
 			"description": "Stringified version of rows to be added"
 		}
