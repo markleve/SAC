@@ -146,6 +146,9 @@
         }
 
         set multicomboboxRows(value) {
+            if(value === undefined) {
+                value = "[]";
+            }
             this._multicomboboxRows = JSON.parse(value);
         }
         
