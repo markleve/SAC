@@ -138,7 +138,7 @@
 
         set addedRows(value) {
             this._addedRows = value;
-            var model = value.parse();
+            var model = JSON.parse(value);
             this._viewModel.setProperty("/SelectionList", model);
         }
         
