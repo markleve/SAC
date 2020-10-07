@@ -161,7 +161,7 @@ function buildTable(that, changedProperties) {
                 onInit: function() {
 
                     if("multicomboboxRows" in changedProperties) {
-                        var rows = oChangedProperties["multicomboboxRows"];
+                        var rows = ChangedProperties["multicomboboxRows"];
                         if(rows === undefined) {
                             rows = "[]";
                         }
