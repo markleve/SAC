@@ -179,7 +179,7 @@ function buildTable(that, changedProperties) {
                 },
 
                 onAddRow: function(oEvent) {
-                    this._data.SelectionList.push({id : '', text : '', selected: false});
+                    this.jModel.getData().SelectionList.push({id : '', text : '', selected: false});
 		            this.jModel.refresh();
                 },
 
@@ -190,7 +190,7 @@ function buildTable(that, changedProperties) {
 
                 onDeleteRow: function(oEvent) {
                     if (this.selectedRow !== undefined) {
-                        this._data.SelectionList.splice(this.selectedRow,1);
+                        this.jModel.getData().SelectionList.splice(this.selectedRow,1);
                         this.jModel.refresh();
                     }
                 },
