@@ -1,0 +1,23 @@
+{
+	"name": "treetable",
+	"description": "Building a tree table",
+	"eula": "",
+	"vendor": "TEST_MARIE",
+	"license": "",
+	"id": "com.sap.sample.mk.treetable",
+	"newInstancePrefix": "treetable",
+	"version": "0.0.1",
+	"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAlCAYAAADSvLDKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGoSURBVFhH7ZcxS8NAFMf7oTr1c3TKpBS0SxDcWqcO0kFwEBEqFMwQ4qCoEJBSKIgU0SHg0EIHIUhBoSUtNErJ8reXtKmtdwXbXLzEDj847u7lfg/eOy4J4+wQ0m5UuIbhOHDGJIzjIpKbUUGly0tHNTzUn/ijq5BckRIU2joNP4YhL1+1/UmuvN5CpogshBHz9/IfPVj9T+pe2+rBHo7GosobpdE4c4LLl9kEzEoZaeJ18y6uvN3UIWe8BLRmz91j1VVXPCkruHv7GTP5lhA1bxsX2BgncKops+KMGIIwDWs/nkMiCcyLL4gRRp5AEtjOqbPihCjIM4m1fCpLe0twYOcAKVekiDRtnYYfw5CPBgx5od82Pi1YNHmha55BDOWHJvR9SuMsRRm6+e1Q7vLt6viAYMhXOtNvh1E2ttmgNMwSPM+V47rmPWIq3+/A6gaB90b34S7frSHvHhAMhWqYDTtsQdubvkFWIZUthXxV8mQt7xFD+UEDSs6bX5mtsGu+e4/C5Gc4AMK9bQiRved5spb38OXD57/LB9eYv2WukZcgQZuMBg6+ACEL39bAVQb/AAAAAElFTkSuQmCC",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-mk-treetable",
+            "url": "http://localhost:8000/treeTable.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+        }
+    ],
+	"properties": { },
+	"methods": { },
+	"events": { }
+}
