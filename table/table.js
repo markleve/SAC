@@ -189,11 +189,11 @@
                     },
             
                     initSampleDataModel : function() {
-                        var oModel = new JSONModel();
+                        var oModel = new JSONModel("https://markleve.github.io/SAC/table/products.json");
             
                         var oDateFormat = DateFormat.getDateInstance({source: {pattern: "timestamp"}, pattern: "dd/MM/yyyy"});
             
-                        jQuery.ajax(sap.ui.require.toUrl("https://markleve.github.io/SAC/table/products.json"), {
+                        /* jQuery.ajax(sap.ui.require.toUrl("https://markleve.github.io/SAC/table/products.json"), {
                             dataType: "json",
                             success: function(oData) {
                                 var aTemp1 = [];
@@ -225,7 +225,7 @@
                                 Log.error("failed to load json");
                             }
                         }); 
-            
+             */
                         return oModel;
                     },
             
