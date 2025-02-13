@@ -5,7 +5,7 @@
 	"vendor": "TEST_MARIE",
 	"license": "",
 	"id": "com.sap.sample.helloworld1",
-	"newInstancePrefix": "HelloWorld1",
+	"newInstancePrefix": "HelloWorld11",
 	"version": "0.0.1",
 	"webcomponents": [
 		{
